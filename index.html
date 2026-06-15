@@ -1,0 +1,2310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vespera — Table Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #0d0d0f;
+    --bg2:       #131318;
+    --bg3:       #1a1a22;
+    --bg4:       #21212c;
+    --border:    #2e2e3e;
+    --border2:   #3a3a50;
+    --gold:      #c9a84c;
+    --gold-dim:  #8a6e2f;
+    --gold-glow: rgba(201,168,76,0.12);
+    --amber:     #e8943a;
+    --red:       #c0392b;
+    --red-dim:   #7a2020;
+    --green:     #4a8c5c;
+    --green-dim: #2a5c3a;
+    --purple:    #7a5c9c;
+    --text:      #ddd8cc;
+    --text-dim:  #8a8478;
+    --text-muted:#5a5450;
+    --warn:      #c0392b;
+    --warn-bg:   rgba(192,57,43,0.12);
+    --slot-on:   #c9a84c;
+    --slot-off:  #2e2e3e;
+    --radius:    6px;
+    --tab-h:     56px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ─── HEADER ─────────────────────────────────── */
+  .site-header {
+    background: linear-gradient(180deg, #0a0a0c 0%, var(--bg2) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 16px 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .header-title {
+    flex: 1;
+  }
+
+  .header-title h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    text-shadow: 0 0 20px var(--gold-glow);
+  }
+
+  .header-title .subtitle {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+    font-style: italic;
+  }
+
+  .header-badge {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 4px 10px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    color: var(--gold-dim);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+
+  /* ─── TAB BAR ────────────────────────────────── */
+  .tab-bar {
+    display: flex;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 65px;
+    z-index: 99;
+  }
+
+  .tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-dim);
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    padding: 10px 2px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    text-transform: uppercase;
+  }
+
+  .tab-btn.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  .tab-btn:hover:not(.active) {
+    color: var(--text);
+  }
+
+  /* ─── CONTENT ────────────────────────────────── */
+  .tab-content { display: none; padding: 14px 12px 28px; }
+  .tab-content.active { display: block; }
+
+  /* ─── SECTION ────────────────────────────────── */
+  .section {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    overflow: hidden;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    padding: 8px 12px 6px;
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-body { padding: 10px 12px; }
+
+  /* ─── STAT GRID ──────────────────────────────── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+  }
+
+  .stat-cell {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-align: center;
+    padding: 6px 4px;
+  }
+
+  .stat-val {
+    font-family: 'Cinzel', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+    line-height: 1.2;
+  }
+
+  .stat-lbl {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  /* ─── KEY MODS ───────────────────────────────── */
+  .mod-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .mod-pill {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+  }
+
+  .mod-pill span {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  /* ─── ATTACK TABLE ───────────────────────────── */
+  .atk-table { width: 100%; border-collapse: collapse; }
+
+  .atk-table td {
+    padding: 6px 8px;
+    font-size: 0.88rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .atk-table tr:last-child td { border-bottom: none; }
+
+  .atk-name { color: var(--text); font-weight: 600; }
+  .atk-hit  { color: var(--gold); font-family: 'Cinzel', serif; font-size: 0.82rem; text-align: center; }
+  .atk-dmg  { color: var(--amber); font-size: 0.82rem; text-align: right; }
+
+  .atk-note {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 4px 8px 6px;
+  }
+
+  /* ─── DAMAGE COMBO TABLE ─────────────────────── */
+  .combo-table { width: 100%; border-collapse: collapse; }
+
+  .combo-table tr { border-bottom: 1px solid var(--border); }
+  .combo-table tr:last-child { border-bottom: none; }
+
+  .combo-table td { padding: 7px 8px; vertical-align: top; }
+
+  .combo-name {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    width: 45%;
+  }
+
+  .combo-name.best { color: var(--gold); font-weight: 600; }
+
+  .combo-dice {
+    font-size: 0.78rem;
+    text-align: right;
+  }
+
+  .combo-first { color: var(--amber); font-weight: 600; display: block; }
+  .combo-later { color: var(--text-muted); font-size: 0.72rem; display: block; }
+
+  .combo-note {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 5px 8px 6px;
+    border-top: 1px solid var(--border);
+    line-height: 1.4;
+  }
+
+  /* ─── ACCORDION ──────────────────────────────── */
+  .accordion-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .accordion-item:last-child { border-bottom: none; }
+
+  .accordion-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.15s;
+  }
+
+  .accordion-btn:hover { color: var(--gold); }
+
+  .accordion-btn .acc-arrow {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .accordion-btn.open .acc-arrow { transform: rotate(90deg); }
+
+  .accordion-btn .acc-tag {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    font-style: italic;
+    font-weight: 400;
+    flex: 1;
+    text-align: right;
+    margin-right: 4px;
+  }
+
+  .acc-warn { color: var(--warn) !important; }
+
+  .accordion-body {
+    display: none;
+    padding: 2px 12px 12px;
+    font-size: 0.84rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+    border-top: 1px solid var(--border);
+    background: var(--bg3);
+  }
+
+  .accordion-body.open { display: block; }
+
+  .acc-warning-box {
+    background: var(--warn-bg);
+    border: 1px solid var(--red-dim);
+    border-radius: var(--radius);
+    padding: 7px 10px;
+    font-size: 0.8rem;
+    color: #e07070;
+    margin-bottom: 8px;
+    margin-top: 6px;
+  }
+
+  /* ─── TRACKERS ───────────────────────────────── */
+  .tracker-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 0 6px;
+  }
+
+  .tracker-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .bolt-counter {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .bolt-num {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    min-width: 70px;
+    text-align: center;
+    text-shadow: 0 0 24px rgba(201,168,76,0.3);
+    line-height: 1;
+  }
+
+  .counter-btn {
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .counter-btn:active {
+    background: var(--bg4);
+    border-color: var(--gold-dim);
+  }
+
+  /* ─── PIP TRACKERS ───────────────────────────── */
+  .pip-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 6px 0;
+  }
+
+  .pip {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid var(--border2);
+    background: var(--bg3);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .pip.filled {
+    background: var(--gold);
+    border-color: var(--gold);
+    box-shadow: 0 0 10px rgba(201,168,76,0.4);
+  }
+
+  .pip.filled.purple-pip {
+    background: var(--purple);
+    border-color: var(--purple);
+    box-shadow: 0 0 10px rgba(122,92,156,0.4);
+  }
+
+  /* ─── LONG REST BUTTON ───────────────────────── */
+  .long-rest-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #1a1510 0%, #241c10 100%);
+    border: 1px solid var(--gold-dim);
+    border-radius: var(--radius);
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    padding: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.2s, box-shadow 0.2s;
+    margin-top: 4px;
+  }
+
+  .long-rest-btn:active {
+    background: linear-gradient(135deg, #241c10 0%, #2e2210 100%);
+    box-shadow: 0 0 16px rgba(201,168,76,0.2);
+  }
+
+  /* ─── SUPPORT POINTS ─────────────────────────── */
+  .sp-counter {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 6px 0 4px;
+    justify-content: center;
+  }
+
+  .sp-num {
+    font-family: 'Cinzel', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--amber);
+    min-width: 60px;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .sp-max {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  /* ─── RISK CARDS ─────────────────────────────── */
+  .risk-card {
+    border-radius: var(--radius);
+    margin-bottom: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .risk-card:last-child { margin-bottom: 0; }
+
+  .risk-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .risk-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .risk-low    .risk-badge { background: rgba(74,140,92,0.2);  color: #6bc98a; border: 1px solid var(--green-dim); }
+  .risk-medium .risk-badge { background: rgba(232,148,58,0.15); color: var(--amber); border: 1px solid #7a5020; }
+  .risk-high   .risk-badge { background: var(--warn-bg);        color: #e07070; border: 1px solid var(--red-dim); }
+
+  .risk-summary {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    flex: 1;
+  }
+
+  .risk-body {
+    display: none;
+    padding: 0 12px 10px;
+    border-top: 1px solid var(--border);
+    background: var(--bg3);
+  }
+
+  .risk-body.open { display: block; }
+
+  .risk-roll {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 7px 0 6px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 8px;
+  }
+
+  .risk-roll strong { color: var(--text-dim); }
+
+  .risk-category {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 8px 0 4px;
+  }
+
+  .risk-option {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    padding: 3px 0;
+    padding-left: 10px;
+    position: relative;
+    line-height: 1.45;
+  }
+
+  .risk-option::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+  }
+
+  /* ─── FOLLOWER TABLE ─────────────────────────── */
+  .follower-table { width: 100%; border-collapse: collapse; }
+
+  .follower-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 6px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg3);
+  }
+
+  .follower-table td {
+    padding: 7px 8px;
+    font-size: 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .follower-table tr:last-child td { border-bottom: none; }
+
+  .follower-table tr.dead td   { opacity: 0.45; }
+  .follower-table tr.gone td   { opacity: 0.45; }
+  .follower-table tr.unknown td { opacity: 0.7; }
+
+  .f-name   { color: var(--text); font-weight: 600; }
+  .f-pts    { color: var(--gold); font-family: 'Cinzel', serif; font-size: 0.8rem; text-align: center; }
+  .f-desc   { color: var(--text-dim); font-size: 0.75rem; line-height: 1.35; }
+  .f-status { font-size: 0.85rem; text-align: center; }
+
+  .flag-warn { color: var(--warn); font-size: 0.7rem; }
+  .flag-unk  { color: var(--text-muted); font-size: 0.7rem; }
+
+  /* ─── RESOURCE LIST ──────────────────────────── */
+  .res-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.84rem;
+    gap: 10px;
+  }
+
+  .res-row:last-child { border-bottom: none; }
+  .res-key { color: var(--text-dim); }
+  .res-val { color: var(--text); font-weight: 600; text-align: right; }
+  .res-val.unknown { color: var(--text-muted); font-style: italic; font-weight: 400; }
+  .res-val.warn    { color: var(--warn); }
+
+  /* ─── INSANITY BAR ───────────────────────────── */
+  .insanity-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .insanity-row:last-child { border-bottom: none; }
+
+  .ins-name { font-size: 0.84rem; color: var(--text-dim); width: 52px; flex-shrink: 0; }
+
+  .ins-pips {
+    display: flex;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .ins-pip {
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    border: 1px solid var(--border2);
+    background: var(--bg3);
+  }
+
+  .ins-pip.filled { background: var(--purple); border-color: var(--purple); }
+
+  .ins-count {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+
+  /* ─── PC CARDS ───────────────────────────────── */
+  .pc-card {
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .pc-card:last-child { border-bottom: none; }
+
+  /* ─── INVENTORY LIST ─────────────────────────── */
+  .inv-list { list-style: none; }
+
+  .inv-list li {
+    font-size: 0.84rem;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .inv-list li:last-child { border-bottom: none; }
+
+  .inv-list li::before {
+    content: '—';
+    color: var(--text-muted);
+    flex-shrink: 0;
+    font-size: 0.75rem;
+  }
+
+  .inv-list .inv-note {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  .inv-missing {
+    background: rgba(192,57,43,0.08);
+    border: 1px solid var(--red-dim);
+    border-radius: var(--radius);
+    padding: 7px 10px;
+    font-size: 0.78rem;
+    color: #c07070;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  /* ─── THREAD LIST ────────────────────────────── */
+  .thread-category {
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    padding: 8px 12px 4px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg3);
+  }
+
+  .thread-item {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    line-height: 1.45;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+  }
+
+  .thread-item:last-child { border-bottom: none; }
+
+  .thread-item::before {
+    content: '◦';
+    color: var(--text-muted);
+    flex-shrink: 0;
+    font-size: 0.7rem;
+  }
+
+  .thread-item.urgent::before { content: '⚠'; color: var(--warn); font-size: 0.65rem; }
+
+  .thread-key {
+    color: var(--text);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  /* ─── DESTINATION BANNER ─────────────────────── */
+  .dest-banner {
+    background: linear-gradient(135deg, #0f1a12 0%, #0a1510 100%);
+    border: 1px solid var(--green-dim);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dest-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #4a8c5c;
+  }
+
+  .dest-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1.0rem;
+    color: #6bc98a;
+    font-weight: 600;
+  }
+
+  /* ─── SESSION BADGE ──────────────────────────── */
+  .session-badge {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    text-align: right;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  /* ─── FUNGI TABLE ────────────────────────────── */
+  .fungi-table { width: 100%; border-collapse: collapse; }
+
+  .fungi-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 6px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg3);
+  }
+
+  .fungi-table td {
+    padding: 6px 8px;
+    font-size: 0.78rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+    vertical-align: top;
+  }
+
+  .fungi-table tr:last-child td { border-bottom: none; }
+  .fungi-name { color: var(--text); font-weight: 600; }
+
+  /* ─── TRACKER STRIP ─────────────────────────── */
+  .tracker-strip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .tracker-strip .section {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 700px) {
+    .tracker-strip {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* ─── DESKTOP ────────────────────────────────── */
+  @media (min-width: 700px) {
+    .site-header { padding: 16px 24px 14px; }
+    .header-title h1 { font-size: 1.35rem; }
+
+    .tab-bar {
+      top: 72px;
+      padding: 0 24px;
+      gap: 4px;
+    }
+
+    .tab-btn {
+      flex: none;
+      padding: 12px 20px;
+      font-size: 0.7rem;
+    }
+
+    .tab-content { padding: 20px 24px 40px; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .two-col-wide {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .col-stack { display: flex; flex-direction: column; gap: 14px; }
+
+    .stat-grid { grid-template-columns: repeat(5, 1fr); }
+  }
+
+  /* ─── DIVIDER ────────────────────────────────── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 10px 0;
+  }
+
+  /* ─── SMALL HELPERS ──────────────────────────── */
+  .text-warn  { color: var(--warn); }
+  .text-gold  { color: var(--gold); }
+  .text-amber { color: var(--amber); }
+  .text-muted { color: var(--text-muted); font-style: italic; font-size: 0.8em; }
+
+  .inline-note {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-style: italic;
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* restore button */
+  .restore-btn {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-dim);
+    font-family: 'Cinzel', serif;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    padding: 5px 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: border-color 0.15s, color 0.15s;
+    margin-top: 4px;
+  }
+
+  .restore-btn:hover {
+    border-color: var(--gold-dim);
+    color: var(--gold);
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ──────────────────────────────────── -->
+<header class="site-header">
+  <div class="header-title">
+    <h1>VESPERA</h1>
+    <div class="subtitle">Wood Elf · Monster Slayer Ranger 4 · Haunted One</div>
+  </div>
+  <div class="header-badge" style="text-align:center; line-height:1.3;">
+    <div>Session 11</div>
+    <div style="font-size:0.6rem; color:var(--text-muted); margin-top:1px;">6/13/2026</div>
+  </div>
+</header>
+
+<!-- ─── TAB BAR ─────────────────────────────────── -->
+<nav class="tab-bar">
+  <button class="tab-btn active" data-tab="combat">Combat</button>
+  <button class="tab-btn" data-tab="party">Party</button>
+  <button class="tab-btn" data-tab="inv">Inv</button>
+  <button class="tab-btn" data-tab="threads">Threads</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     TAB: COMBAT
+══════════════════════════════════════════════════ -->
+<div class="tab-content active" id="tab-combat">
+
+  <!-- Tracker Strip -->
+  <div class="tracker-strip">
+
+    <div class="section">
+      <div class="section-title">Bolts</div>
+      <div class="section-body">
+        <div class="tracker-wrap" style="padding:6px 0 2px;">
+          <div class="bolt-counter" style="gap:10px;">
+            <button class="counter-btn" id="bolt-dec" style="width:40px;height:40px;" aria-label="Decrease bolts">−</button>
+            <div class="bolt-num" id="bolt-display" style="font-size:2.2rem; min-width:50px;">34</div>
+            <button class="counter-btn" id="bolt-inc" style="width:40px;height:40px;" aria-label="Increase bolts">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Arrows</div>
+      <div class="section-body">
+        <div class="tracker-wrap" style="padding:6px 0 2px;">
+          <div class="bolt-counter" style="gap:10px;">
+            <button class="counter-btn" id="arrow-dec" style="width:40px;height:40px;" aria-label="Decrease arrows">−</button>
+            <div class="bolt-num" id="arrow-display" style="font-size:2.2rem; min-width:50px;">40</div>
+            <button class="counter-btn" id="arrow-inc" style="width:40px;height:40px;" aria-label="Increase arrows">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Spell Slots — 1st</div>
+      <div class="section-body">
+        <div class="pip-row" id="spell-pips">
+          <div class="pip filled" data-pip="spell-0" aria-label="Spell slot 1"></div>
+          <div class="pip filled" data-pip="spell-1" aria-label="Spell slot 2"></div>
+          <div class="pip filled" data-pip="spell-2" aria-label="Spell slot 3"></div>
+        </div>
+        <div style="text-align:center; margin-top:4px;">
+          <span class="inline-note">tap to expend</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Hunter's Sense</div>
+      <div class="section-body">
+        <div class="pip-row" id="hs-pips">
+          <div class="pip filled" data-pip="hs-0" aria-label="Hunter's Sense use 1"></div>
+          <div class="pip filled" data-pip="hs-1" aria-label="Hunter's Sense use 2"></div>
+          <div class="pip filled" data-pip="hs-2" aria-label="Hunter's Sense use 3"></div>
+        </div>
+        <div style="text-align:center; margin-top:4px;">
+          <span class="inline-note">3 / long rest</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Favored Foe</div>
+      <div class="section-body">
+        <div class="pip-row" id="ff-pips">
+          <div class="pip filled purple-pip" data-pip="ff-0" aria-label="Favored Foe use 1"></div>
+          <div class="pip filled purple-pip" data-pip="ff-1" aria-label="Favored Foe use 2"></div>
+        </div>
+        <div style="text-align:center; margin-top:4px;">
+          <span class="inline-note">2 / long rest</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /tracker-strip -->
+
+  <div class="two-col">
+  <div class="col-stack">
+
+  <!-- Hit Points -->
+  <div class="section">
+    <div class="section-title">Hit Points</div>
+    <div class="section-body">
+      <div style="display:flex; gap:8px; align-items:stretch; flex-wrap:wrap;">
+        <div style="flex:1; min-width:90px;">
+          <div class="tracker-label" style="text-align:center; margin-bottom:6px;">Current HP</div>
+          <div class="bolt-counter" style="justify-content:center;">
+            <button class="counter-btn" id="hp-dec" aria-label="Decrease HP">−</button>
+            <div class="bolt-num" id="hp-display" style="color:#c0392b; text-shadow:0 0 24px rgba(192,57,43,0.35); border-bottom:2px solid var(--red-dim); padding-bottom:2px; cursor:text;" title="Tap to adjust: +2, −3, or set directly">40</div>
+            <button class="counter-btn" id="hp-inc" aria-label="Increase HP">+</button>
+          </div>
+          <div style="text-align:center; margin-top:4px;"><span class="inline-note">max 40 · tap to adjust</span></div>
+        </div>
+        <div style="width:1px; background:var(--border); flex-shrink:0;"></div>
+        <div style="flex:1; min-width:90px;">
+          <div class="tracker-label" style="text-align:center; margin-bottom:6px;">Temp HP</div>
+          <div class="bolt-counter" style="justify-content:center;">
+            <button class="counter-btn" id="thp-dec" aria-label="Decrease Temp HP">−</button>
+            <div class="bolt-num" id="thp-display" style="font-size:2.2rem; color:#4a8c5c; text-shadow:0 0 24px rgba(74,140,92,0.3); border-bottom:2px solid var(--green-dim); padding-bottom:2px; cursor:text;" title="Tap to adjust: +2, −3, or set directly">0</div>
+            <button class="counter-btn" id="thp-inc" aria-label="Increase Temp HP">+</button>
+          </div>
+          <div style="text-align:center; margin-top:4px;"><span class="inline-note">clears on rest · tap to adjust</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stat Block -->
+  <div class="section">
+    <div class="section-title">Stats</div>
+    <div class="section-body">
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <span class="stat-val">16</span>
+          <span class="stat-lbl">AC</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-val">40</span>
+          <span class="stat-lbl">HP Max</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-val">35</span>
+          <span class="stat-lbl">Speed</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-val">15</span>
+          <span class="stat-lbl">Pass. Perc</span>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-val">+4</span>
+          <span class="stat-lbl">Init</span>
+        </div>
+      </div>
+      <div class="mod-row">
+        <div class="mod-pill">Save DC <span>13</span></div>
+        <div class="mod-pill">Spell Atk <span>+5</span></div>
+        <div class="mod-pill">Stealth <span>+8</span></div>
+        <div class="mod-pill">Perception <span>+5</span></div>
+        <div class="mod-pill">Survival <span>+5</span></div>
+        <div class="mod-pill">Darkvision <span>60ft</span></div>
+      </div>
+      <div class="inline-note" style="margin-top:6px;">AC 16 = studded leather 12 (new S11) + DEX +4</div>
+    </div>
+  </div>
+
+  <!-- Support Points -->
+  <div class="section">
+    <div class="section-title">Support Points</div>
+    <div class="section-body">
+      <div class="tracker-wrap">
+        <div class="tracker-label">Available</div>
+        <div class="sp-counter">
+          <button class="counter-btn" id="sp-dec" aria-label="Spend support point">−</button>
+          <div>
+            <div class="sp-num" id="sp-display">10</div>
+            <div class="sp-max">max 10</div>
+          </div>
+          <button class="counter-btn" id="sp-inc" aria-label="Restore support point">+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /col-stack -->
+
+  <!-- Right column: Hit Dice + Attacks + Damage Combos -->
+  <div class="col-stack">
+
+  <!-- Hit Dice -->
+  <div class="section">
+    <div class="section-title">Hit Dice — d10</div>
+    <div class="section-body">
+      <div class="pip-row" id="hd-pips">
+        <div class="pip filled" data-pip="hd-0" aria-label="Hit die 1"></div>
+        <div class="pip filled" data-pip="hd-1" aria-label="Hit die 2"></div>
+        <div class="pip filled" data-pip="hd-2" aria-label="Hit die 3"></div>
+        <div class="pip filled" data-pip="hd-3" aria-label="Hit die 4"></div>
+      </div>
+      <div style="text-align:center; margin-top:4px;">
+        <span class="inline-note">4 total · long rest restores 2</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Attacks -->
+  <div class="section">
+    <div class="section-title">Attacks</div>
+    <div class="section-body" style="padding:0;">
+      <table class="atk-table">
+        <tr>
+          <td class="atk-name">Longbow</td>
+          <td class="atk-hit">+8</td>
+          <td class="atk-dmg">1d8+4 piercing</td>
+        </tr>
+        <tr>
+          <td class="atk-name">Hand Crossbow</td>
+          <td class="atk-hit">+8</td>
+          <td class="atk-dmg">1d6+4 piercing</td>
+        </tr>
+        <tr>
+          <td class="atk-name">Shortsword ×2</td>
+          <td class="atk-hit">+6</td>
+          <td class="atk-dmg">1d6+4 piercing</td>
+        </tr>
+      </table>
+      <div class="atk-note">Longbow and Hand Crossbow both include +2 from Fighting Style: Archery. Roll20 may display +6 for the Hand Crossbow — the correct value is +8.</div>
+    </div>
+  </div>
+
+  <!-- Damage Combos -->
+  <div class="section">
+    <div class="section-title">Damage Combos — 1st hit per turn</div>
+    <div class="section-body" style="padding:0;">
+      <div class="combo-note" style="border-top:none; border-bottom:1px solid var(--border); padding-top:5px;">Base damage: Longbow 1d8+4 · Hand Crossbow / Shortsword 1d6+4. Substitute as appropriate.</div>
+      <table class="combo-table">
+        <tr>
+          <td class="combo-name">Slayer's Prey only</td>
+          <td class="combo-dice">
+            <span class="combo-first">base+4 + 1d6</span>
+            <span class="combo-later">later: base+4</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="combo-name">Hunter's Mark only</td>
+          <td class="combo-dice">
+            <span class="combo-first">base+4 + 1d6</span>
+            <span class="combo-later">later: base+4 + 1d6</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="combo-name best">★ Both stacked</td>
+          <td class="combo-dice">
+            <span class="combo-first">base+4 + 2d6</span>
+            <span class="combo-later">later: base+4 + 1d6</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="combo-name">Favored Foe only</td>
+          <td class="combo-dice">
+            <span class="combo-first">base+4 + 1d4</span>
+            <span class="combo-later">later: base+4</span>
+          </td>
+        </tr>
+      </table>
+      <div class="combo-note">
+        SP + HM <strong>stack</strong> (SP = no concentration). Favored Foe does <strong>NOT</strong> stack with HM — both concentration. HM stronger now; Favored Foe scales at Lv6.
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /col-stack -->
+  </div><!-- /two-col -->
+
+  <!-- Features -->
+  <div class="section">
+    <div class="section-title">Features &amp; Abilities</div>
+    <div id="features-accordion">
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="feat-sp">
+          Slayer's Prey
+          <span class="acc-tag">bonus action · no conc · unlimited</span>
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="feat-sp">
+          Designate one creature within <strong>60 ft.</strong> as prey (bonus action). First hit each turn against that target deals <strong>+1d6 damage</strong>. Lasts until short/long rest or you designate a new target. No concentration. Unlimited uses.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="feat-hs">
+          Hunter's Sense
+          <span class="acc-tag">action · 3/long rest</span>
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="feat-hs">
+          Choose one creature within <strong>60 ft.</strong> (action). Immediately learn all damage <strong>immunities, resistances, and vulnerabilities</strong>. Uses = WIS modifier (<strong>3/long rest</strong>).
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="feat-ff">
+          Favored Foe
+          <span class="acc-tag">concentration · 2/long rest</span>
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="feat-ff">
+          On hit, mark target as favored enemy (concentration, up to 1 min). First hit each turn deals <strong>+1d4 damage</strong>. Uses = proficiency bonus (<strong>2/long rest</strong>). Does <strong>not</strong> stack with Hunter's Mark.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="feat-gb">
+          Goodberry
+          <span class="acc-tag">1st-lvl spell · 1 slot</span>
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="feat-gb">
+          Action. Up to <strong>10 magical berries</strong> appear in your hand. A creature can use its action to eat one berry, restoring <strong>1 HP</strong> and providing nourishment for one day. Berries lose their potency after <strong>24 hours</strong> of casting. Requires material component (sprig of mistletoe). Costs 1 spell slot.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="feat-fc">
+          Fog Cloud
+          <span class="acc-tag">1st-lvl spell · concentration · 1 slot</span>
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="feat-fc">
+          Action. <strong>20-ft radius</strong> heavily obscuring sphere at point within <strong>120 ft.</strong> Lasts up to 1 hour. No material component. Creatures inside effectively blinded — attacks in/out at <strong>disadvantage</strong>.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="feat-hm">
+          Hunter's Mark
+          <span class="acc-tag">1st-lvl spell · concentration · 1 slot</span>
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="feat-hm">
+          Bonus action. Mark one creature within <strong>90 ft.</strong> <strong>+1d6 damage</strong> on every hit against it. Advantage on Perception/Survival checks to find it. If prey drops to 0 HP, transfer mark with bonus action. Costs 1 spell slot.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="feat-pg">
+          Protection from Evil &amp; Good
+          <span class="acc-tag">component via Hadrin</span>
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="feat-pg">
+          <div class="acc-warning-box" style="background:rgba(74,140,92,0.1); border-color:var(--green-dim); color:#6bc98a;">Hadrin's assembled spell component pouch (recovered from the black stone tower, S8) is available to Vespera outside of combat. Original component pouch still missing.</div>
+          Touch, concentration, up to 10 min. Target protected against aberrations, celestials, elementals, fey, fiends, undead. Those creatures have <strong>disadvantage on attacks</strong> against the target. Target can't be charmed, frightened, or possessed by them.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="feat-swa">
+          Speak with Animals
+          <span class="acc-tag">primal awareness · free 1×/long rest</span>
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="feat-swa">
+          Communicate with beasts for <strong>10 minutes</strong>. Does not cost a spell slot when cast via Primal Awareness. No material component.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="feat-pa">
+          Primeval Awareness
+          <span class="acc-tag">action + spell slot</span>
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="feat-pa">
+          Action + spell slot. Sense <strong>presence</strong> (not location) of aberrations, celestials, dragons, elementals, fey, fiends, or undead within <strong>1 mile</strong> for 1 min per slot level expended.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Long Rest -->
+  <div class="section" style="margin-top:4px;">
+    <div class="section-body">
+      <button class="long-rest-btn" id="long-rest-btn">🌙 Long Rest — Reset All Trackers</button>
+    </div>
+  </div>
+
+</div><!-- /tab-combat -->
+
+
+<!-- ═══════════════════════════════════════════════
+     TAB: PARTY
+══════════════════════════════════════════════════ -->
+<div class="tab-content" id="tab-party">
+
+  <div class="dest-banner">
+    <div>
+      <div class="dest-label">Destination</div>
+      <div class="dest-name">Gracklstugh</div>
+    </div>
+    <div style="text-align:right;">
+      <div class="dest-label">Status</div>
+      <div style="font-size:0.82rem; color: #6bc98a;">In city — tracking Droki in West Cleft District (S11)</div>
+    </div>
+  </div>
+
+  <div class="two-col-wide">
+  <div class="col-stack">
+
+  <!-- Risk Reference -->
+  <div class="section">
+    <div class="section-title">Support Point Risk Reference</div>
+    <div class="section-body" style="padding: 8px 10px;">
+
+      <!-- LOW -->
+      <div class="risk-card risk-low">
+        <div class="risk-header" data-risk="low">
+          <span class="risk-badge">Low</span>
+          <span class="risk-summary">d20: 1 = short/long rest · else end of encounter</span>
+          <span class="acc-arrow" style="color:var(--text-muted);font-size:0.7rem;">▶</span>
+        </div>
+        <div class="risk-body" id="risk-low">
+          <div class="risk-roll"><strong>Roll d20.</strong> On a 1: short/long rest cooldown. Otherwise: refreshes at end of encounter.</div>
+          <div class="risk-category">Offensive</div>
+          <div class="risk-option">+1d4 to your attack roll, OR −1d4 to an enemy saving throw</div>
+          <div class="risk-category">Defensive</div>
+          <div class="risk-option">When hit or forced to save: +2 to AC or saving throw</div>
+          <div class="risk-category">Utility</div>
+          <div class="risk-option">Advantage on your next ability check</div>
+        </div>
+      </div>
+
+      <!-- MEDIUM -->
+      <div class="risk-card risk-medium">
+        <div class="risk-header" data-risk="medium">
+          <span class="risk-badge">Medium</span>
+          <span class="risk-summary">d20: ≤5 = long rest · else short/long rest</span>
+          <span class="acc-arrow" style="color:var(--text-muted);font-size:0.7rem;">▶</span>
+        </div>
+        <div class="risk-body" id="risk-medium">
+          <div class="risk-roll"><strong>Roll d20.</strong> On 5 or lower: long rest cooldown. Otherwise: short or long rest cooldown.</div>
+          <div class="risk-category">Offensive</div>
+          <div class="risk-option">Advantage on your next attack roll, OR enemy saving throw at disadvantage</div>
+          <div class="risk-category">Defensive</div>
+          <div class="risk-option">Enemy hits you: force them to reroll, take lower. OR fail a save: reroll, take higher.</div>
+          <div class="risk-category">Utility</div>
+          <div class="risk-option">Free 5-ft step on your turn: no OA, doesn't cost movement. Cannot use if speed 0 or incapacitated.</div>
+        </div>
+      </div>
+
+      <!-- HIGH -->
+      <div class="risk-card risk-high">
+        <div class="risk-header" data-risk="high">
+          <span class="risk-badge">High</span>
+          <span class="risk-summary">d20: ≤10 = DEATH (permanent) · else long rest</span>
+          <span class="acc-arrow" style="color:var(--text-muted);font-size:0.7rem;">▶</span>
+        </div>
+        <div class="risk-body" id="risk-high">
+          <div class="risk-roll"><strong>Roll d20.</strong> On 10 or lower: follower <strong style="color:#e07070;">DIES — point lost permanently.</strong> Otherwise: long rest cooldown.</div>
+          <div class="risk-category">Offensive</div>
+          <div class="risk-option">Advantage on attack + auto-crit if it hits. OR enemy save at disadvantage — if they fail, reroll damage and take higher.</div>
+          <div class="risk-category">Defensive</div>
+          <div class="risk-option">Turn a hit into a miss. OR turn a failed save into a success.</div>
+          <div class="risk-category">Utility</div>
+          <div class="risk-option">Transfer one item to any friendly creature within 60 ft. If consumable, hireling can administer it. Works even if incapacitated.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Party Resources -->
+  <div class="section">
+    <div class="section-title">Party Resources</div>
+    <div class="section-body">
+      <div class="res-row">
+        <span class="res-key">Barrelstalk fungi</span>
+        <span class="res-val">3 of 6</span>
+      </div>
+      <div class="res-row">
+        <span class="res-key">Barrelstalk yield</span>
+        <span class="res-val text-muted">1d6+4 lbs food / 1d4+4 gal water</span>
+      </div>
+      <div class="res-row">
+        <span class="res-key">Daily need (full group)</span>
+        <span class="res-val">16 lbs / 16 gal</span>
+      </div>
+      <div class="res-row">
+        <span class="res-key">Dark vials (×4)</span>
+        <span class="res-val unknown">unidentified</span>
+      </div>
+      <div class="res-row">
+        <span class="res-key">Red gimmerith</span>
+        <span class="res-val unknown">unidentified (S6)</span>
+      </div>
+      <div class="res-row">
+        <span class="res-key">Vial of unguent</span>
+        <span class="res-val unknown">unidentified (S6)</span>
+      </div>
+      <div class="res-row">
+        <span class="res-key">Orog loot potions/scrolls</span>
+        <span class="res-val text-muted">in party pool (S10)</span>
+      </div>
+      <div class="res-row">
+        <span class="res-key">Party pool gold</span>
+        <span class="res-val">~347 gp <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">68 gp from S10 + 279 gp net from S11 Blade Bazaar</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Player Characters -->
+  <div class="section">
+    <div class="section-title">Player Characters</div>
+    <div id="pc-accordion">
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="pc-vespera">
+          Vespera
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="pc-vespera">
+          Wood Elf Monster Slayer Ranger 4. Navigator. Pale skin with silver veins, golden eyes, red hair. Carries Underdark map. Longbow recovered S11. Carries healer's kit and explorer's pack (S11).
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="pc-hadrin">
+          Hadrin
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="pc-hadrin">
+          Metallic blue skin, gold veins, silver eyes. Calm and upbeat. Nat 20 final death save, killed last orog (S9). Lost armor and chains to ooze (S6). Now wearing scale mail (from Mercy, S10). Carries light crossbow (S11), whip, greataxe, Facrus's backpack, spell component pouch (S10). Mace identified as Torch Mace S11; given to Zara.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="pc-mercy">
+          Mercy
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="pc-mercy">
+          Feline humanoid. Noble. Knights of the Unicorn. Healer. 1 insanity. Wearing orog plate mail (S9). Confronted Buppido directly about cut backpack (S10) — Buppido deflected. Maul traded at Blade Bazaar S11.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="pc-zara">
+          Zara
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="pc-zara">
+          Pale-haired human woman. Anxious. Prays instinctively. Carries sun-deity shield (deity unconfirmed) and mace. Carries Torch Mace (magic weapon, identified S11) in addition to mace. Holy symbol spotted in Themberchaud's hoard S11 — not yet retrieved.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="pc-willow">
+          Willow
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="pc-willow">
+          7-foot-tall, silver freckles, gray skin. Druid. Strong innate sense of direction. Carries star map (S7) and spine staff from kuo-toa altar (S8; possibly cursed). New abilities: Starry Form and Constellation of the Chalice (S9).
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="pc-david">
+          David el Gnomo
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="pc-david">
+          Gnome tinkerer. Last of el Gnomo family (High Forest). Carries arcane spellbook (unexamined), wooden hourglass (properties unknown), bag of holding, alchemy jug (first noted S9), dragon bones and teeth (S9), Hadrin's damaged armor, new armor (S11; type unconfirmed; homebrew pricing).
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  </div><!-- /col-stack -->
+
+  <div class="col-stack">
+
+  <!-- Insanity -->
+  <div class="section">
+    <div class="section-title">Party Insanity</div>
+    <div class="section-body">
+      <div class="insanity-row">
+        <span class="ins-name">Zara</span>
+        <div class="ins-pips">
+          <div class="ins-pip filled"></div>
+          <div class="ins-pip filled"></div>
+          <div class="ins-pip"></div>
+          <div class="ins-pip"></div>
+          <div class="ins-pip"></div>
+        </div>
+        <span class="ins-count">2 lvl</span>
+      </div>
+      <div class="insanity-row">
+        <span class="ins-name">Mercy</span>
+        <div class="ins-pips">
+          <div class="ins-pip filled"></div>
+          <div class="ins-pip"></div>
+          <div class="ins-pip"></div>
+          <div class="ins-pip"></div>
+          <div class="ins-pip"></div>
+        </div>
+        <span class="ins-count">1 lvl</span>
+      </div>
+      <div class="inline-note" style="margin-top:6px;">Homebrew mechanic. Threshold effects unknown — confirm with DM.</div>
+    </div>
+  </div>
+
+  <!-- Followers -->
+  <div class="section">
+    <div class="section-title">Followers (9 active)</div>
+    <div style="overflow-x:auto;">
+      <table class="follower-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th style="text-align:center;">SP</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="gone">
+            <td class="f-status">🚪</td>
+            <td class="f-name">Buppido <span class="flag-warn">⚠</span></td>
+            <td class="f-pts">—</td>
+            <td class="f-desc">Derro. No longer traveling with party as of S11; departure circumstances unrecorded. Long-standing suspicion figure — cut backpack S8; confronted S10.</td>
+          </tr>
+          <tr>
+            <td class="f-status">✅</td>
+            <td class="f-name">Derendil</td>
+            <td class="f-pts">1</td>
+            <td class="f-desc">Quaggoth. Claims cursed gold elf prince.</td>
+          </tr>
+          <tr>
+            <td class="f-status">✅</td>
+            <td class="f-name">Eldeth</td>
+            <td class="f-pts">1</td>
+            <td class="f-desc">Shield dwarf scout. Orange braids.</td>
+          </tr>
+          <tr>
+            <td class="f-status">✅</td>
+            <td class="f-name">Jimjar</td>
+            <td class="f-pts">1</td>
+            <td class="f-desc">Deep gnome. Mischievous.</td>
+          </tr>
+          <tr>
+            <td class="f-status">✅</td>
+            <td class="f-name">Sarith <span class="flag-warn">⚠</span></td>
+            <td class="f-pts">1</td>
+            <td class="f-desc">Drow. Zuggtmoy spores. Concerning.</td>
+          </tr>
+          <tr>
+            <td class="f-status">✅</td>
+            <td class="f-name">Shuushar</td>
+            <td class="f-pts">1</td>
+            <td class="f-desc">Kuo-toa pacifist. Spores 3×/day. Disoriented (S6).</td>
+          </tr>
+          <tr>
+            <td class="f-status">✅</td>
+            <td class="f-name">Stool</td>
+            <td class="f-pts">1</td>
+            <td class="f-desc">Myconid sprout.</td>
+          </tr>
+          <tr>
+            <td class="f-status">✅</td>
+            <td class="f-name">Topsy &amp; Turvy</td>
+            <td class="f-pts">2</td>
+            <td class="f-desc">Twin deep gnomes. Secretive.</td>
+          </tr>
+          <tr class="gone">
+            <td class="f-status">🚪</td>
+            <td class="f-name">Hemeth</td>
+            <td class="f-pts">—</td>
+            <td class="f-desc">Duergar. No longer traveling with party as of S11; departure circumstances unrecorded. Presence had aided entry to Gracklstugh (S10).</td>
+          </tr>
+          <tr>
+            <td class="f-status">✅</td>
+            <td class="f-name">Glabagoul</td>
+            <td class="f-pts">1</td>
+            <td class="f-desc">Gelatinous cube. Recently sentient. Joined S7.</td>
+          </tr>
+          <tr class="dead">
+            <td class="f-status">💀</td>
+            <td class="f-name">Facrus</td>
+            <td class="f-pts">—</td>
+            <td class="f-desc">Halfling. Fell from ledge S8. Buppido suspected.</td>
+          </tr>
+          <tr class="dead">
+            <td class="f-status">💀</td>
+            <td class="f-name">Ront</td>
+            <td class="f-pts">—</td>
+            <td class="f-desc">Orc. Killed by spider S4.</td>
+          </tr>
+          <tr class="gone">
+            <td class="f-status">🚪</td>
+            <td class="f-name">Captive Drow</td>
+            <td class="f-pts">—</td>
+            <td class="f-desc">Likely escaped S6.</td>
+          </tr>
+          <tr class="gone">
+            <td class="f-status">🚪</td>
+            <td class="f-name">Yuk Yuk &amp; Spiderbat</td>
+            <td class="f-pts">—</td>
+            <td class="f-desc">Guides. Departed S4. Paid 4 gp.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  </div><!-- /col-stack -->
+  </div><!-- /two-col-wide -->
+
+  <!-- Fungi Reference -->
+  <div class="section">
+    <div class="section-title">Underdark Fungi Reference</div>
+    <div style="overflow-x:auto;">
+      <table class="fungi-table">
+        <thead>
+          <tr>
+            <th>Fungus</th>
+            <th>Use</th>
+            <th>Yield</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="fungi-name">Barrelstalk</td><td>Food + water</td><td>1d6+4 lbs / 1d4+4 gal</td></tr>
+          <tr><td class="fungi-name">Bluecap</td><td>Food (sporebread)</td><td>~1 lb per loaf</td></tr>
+          <tr><td class="fungi-name">Ripplebark</td><td>Food</td><td>1d4+6 lbs; roast for best</td></tr>
+          <tr><td class="fungi-name">Trillimac</td><td>Food + crafting</td><td>1d6+4 lbs stalk; cap = maps/scrolls</td></tr>
+          <tr><td class="fungi-name">Waterorb</td><td>Food + water</td><td>1 lb / 1 gal</td></tr>
+          <tr><td class="fungi-name">Zurkhwood</td><td>Food + timber</td><td>1d4+4 lbs; stalks = timber</td></tr>
+          <tr><td class="fungi-name">Fire Lichen</td><td>Flavoring</td><td>Spicy paste for bread/soups</td></tr>
+          <tr><td class="fungi-name">Nightlight</td><td>Light</td><td>15ft bright / 15ft dim; toggle on touch</td></tr>
+          <tr><td class="fungi-name">Ormu</td><td>Light (dim)</td><td>5ft dim; harvestable powder</td></tr>
+          <tr><td class="fungi-name">Torchstalk</td><td>Flame (24hr)</td><td>1-in-6 explosion: 1d6 fire, 10ft</td></tr>
+          <tr><td class="fungi-name">Nilhogg's Nose</td><td>Special</td><td>Adv smell Perc 1d4hr; disadv smell saves</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /tab-party -->
+
+
+<!-- ═══════════════════════════════════════════════
+     TAB: INVENTORY
+══════════════════════════════════════════════════ -->
+<div class="tab-content" id="tab-inv">
+
+  <!-- Vespera -->
+  <div class="section">
+    <div class="section-title">Vespera</div>
+    <div class="section-body">
+      <ul class="inv-list">
+        <li>Studded leather armor <span class="inv-note">AC base 12 — new, purchased S11</span></li>
+        <li>Longbow <span class="inv-note">purchased S11; replaces original missing since S1</span></li>
+        <li>Hand crossbow</li>
+        <li>Hand crossbow bolts <span class="inv-note">see Gear tab counter</span></li>
+        <li>Quiver <span class="inv-note">purchased S11</span></li>
+        <li>40 arrows <span class="inv-note">purchased S11 — tracked by Arrows counter on Combat tab</span></li>
+        <li>Shortsword ×2</li>
+        <li>1 copper piece</li>
+        <li>Haunted Spool of Endless Silk <span class="inv-note">recovered S5</span></li>
+        <li>Map of the Underdark <span class="inv-note">purchased from Mergo, S7</span></li>
+        <li>Healer's kit <span class="inv-note">purchased S11</span></li>
+        <li>Explorer's pack <span class="inv-note">purchased S11: backpack, bedroll, 2 costumes, 5 candles, 5 days of rations, waterskin, disguise kit, 50 ft. of hempen rope</span></li>
+        <li>1 common clothes <span class="inv-note">purchased S11</span></li>
+      </ul>
+      <div class="inline-note" style="margin-top:6px;">Longbow, quiver, and arrows now in possession (S11). Original component pouch still missing; Hadrin's assembled pouch is available outside of combat.</div>
+    </div>
+  </div>
+
+  <!-- Hadrin -->
+  <div class="section">
+    <div class="section-title">Hadrin</div>
+    <div class="section-body">
+      <ul class="inv-list">
+        <li>Glowing crystal <span class="inv-note">fist-sized; from cavern beyond Silken Paths</span></li>
+        <li>Scale mail <span class="inv-note">given by Mercy (her prior armor, confirmed S10)</span></li>
+        <li>Spell component pouch <span class="inv-note">from party pool; moved to Hadrin S10 — available to other casters outside combat</span></li>
+        <li>Map of Candlekeep <span class="inv-note">purchased from Mergo for 6 sp, S7</span></li>
+        <li>Whip <span class="inv-note">recovered from Facrus's backpack, S8</span></li>
+        <li>Facrus's backpack <span class="inv-note">recovered from ledge after his death, S8; contains 1 old ration (unsafe) and 1 pair ladies' underwear</span></li>
+        <li>Greataxe <span class="inv-note">looted from orog ambush, S9</span></li>
+        <li>Light crossbow <span class="inv-note">purchased at Blade Bazaar S11</span></li>
+        <li>20 crossbow bolts <span class="inv-note">purchased at Blade Bazaar S11 (for light crossbow)</span></li>
+        <li><em style="color:var(--text-muted); text-decoration:line-through;">Shortsword — traded at Blade Bazaar S11</em></li>
+        <li><em style="color:var(--text-muted); text-decoration:line-through;">Mace (Glabagoul's donation S6) — identified as Torch Mace; given to Zara S11</em></li>
+        <li><em style="color:var(--text-muted);">Chains — destroyed by ooze corrosion, S6</em></li>
+        <li><em style="color:var(--text-muted);">Armor — dissolved by gray ooze, given to David, S6</em></li>
+        <li><em style="color:var(--text-muted);">Chain shirt — damaged; discarded, S10</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Mercy -->
+  <div class="section">
+    <div class="section-title">Mercy</div>
+    <div class="section-body">
+      <ul class="inv-list">
+        <li><em style="color:var(--text-muted); text-decoration:line-through;">Maul — traded at Blade Bazaar S11</em></li>
+        <li>Dragon claw pendant <span class="inv-note">looted from mummified corpse cocoon, S4</span></li>
+        <li>Suit of plate mail armor <span class="inv-note">looted from orog ambush, S9; now equipped</span></li>
+        <li>Greataxe <span class="inv-note">looted from orog ambush, S9</span></li>
+        <li><em style="color:var(--text-muted);">Scale mail — given to Hadrin, S10 (confirmed as Mercy's prior unrecorded armor)</em></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Zara -->
+  <div class="section">
+    <div class="section-title">Zara</div>
+    <div class="section-body">
+      <ul class="inv-list">
+        <li>Sun-deity shield <span class="inv-note">deity unconfirmed — confirmed sun deity, not Zara's own</span></li>
+        <li>Mace <span class="inv-note">looted from elven woman's cocoon, S4</span></li>
+        <li>Scale mail <span class="inv-note">looted from elven woman's cocoon, S4</span></li>
+        <li>20 gold pieces <span class="inv-note">looted from elven woman's cocoon, S4</span></li>
+        <li>Glowing crystal <span class="inv-note">fist-sized; from cavern beyond Silken Paths</span></li>
+        <li>Torch Mace <span class="inv-note">magic weapon; identified S11; previously Hadrin's mace — Glabagoul's donation S6. Zara now carries both this and her S4 mace.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Willow -->
+  <div class="section">
+    <div class="section-title">Willow</div>
+    <div class="section-body">
+      <ul class="inv-list">
+        <li>Star map <span class="inv-note">purchased from Mergo, S7; significance unknown</span></li>
+        <li>Spine staff <span class="inv-note">recovered from kuo-toa altar, S8; properties unknown; possibly cursed</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- David -->
+  <div class="section">
+    <div class="section-title">David el Gnomo</div>
+    <div class="section-body">
+      <ul class="inv-list">
+        <li>Arcane spellbook <span class="inv-note">covered in arcane runes; contents unexamined</span></li>
+        <li>Drow cloak <span class="inv-note">looted from drow ambush, S3</span></li>
+        <li>Glowing crystal <span class="inv-note">fist-sized; from cavern beyond Silken Paths</span></li>
+        <li>Bag of holding <span class="inv-note">contains party pool items — see below</span></li>
+        <li>Hadrin's damaged armor <span class="inv-note">dissolved by gray ooze, given to David S6; usability unconfirmed</span></li>
+        <li>Wooden hourglass <span class="inv-note">found during underwater wedding S6; sand freezes at top normally, moves upward when inverted — properties unknown</span></li>
+        <li>Alchemy jug <span class="inv-note">first recorded S9; full capabilities unrecorded</span></li>
+        <li>Dragon bones and teeth <span class="inv-note">taken from dragon skeleton S9; quantity unrecorded</span></li>
+        <li>Suit of armor <span class="inv-note">purchased at Blade Bazaar S11; type unconfirmed — 100 gp (homebrew pricing); flagged for DM confirmation</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Party Pool -->
+  <div class="section">
+    <div class="section-title">Unassigned / Party Pool</div>
+    <div class="section-body">
+      <div class="tracker-label" style="margin-bottom:6px;">Weapons &amp; Armor</div>
+      <ul class="inv-list" style="margin-bottom:12px;">
+        <li>1 suit of plate mail armor <span class="inv-note">1 remaining of 4 from orog loot S9; 3 sold at Blade Bazaar S11</span></li>
+        <li>1 greataxe <span class="inv-note">1 remaining of 3 from orog loot S9; 2 traded at Blade Bazaar S11</span></li>
+        <li>2 hand crossbows <span class="inv-note">drow cocoons S4; 1 may have been distributed — confirm with DM</span></li>
+        <li>1 dagger <span class="inv-note">abandoned camp platform, S4</span></li>
+        <li>1 chain shirt <span class="inv-note">drow ambush S3; 1 of 2 (other given to Hadrin S7)</span></li>
+        <li>1 hand crossbow <span class="inv-note">drow ambush S3; holder unconfirmed</span></li>
+        <li>1 dagger of drow make <span class="inv-note">spider design; fountain room S6</span></li>
+        <li>3 whips <span class="inv-note">purchased at Blade Bazaar S11; recipients unassigned — flagged for confirmation</span></li>
+        <li>3 rapiers <span class="inv-note">purchased at Blade Bazaar S11; recipients unassigned — flagged for confirmation</span></li>
+        <li>1 gnarled quarterstaff <span class="inv-note">purchased at Blade Bazaar S11; recipient unassigned — flagged for confirmation</span></li>
+        <li>20 pitons <span class="inv-note">purchased at Blade Bazaar S11</span></li>
+        <li>1 hammer <span class="inv-note">purchased at Blade Bazaar S11</span></li>
+      </ul>
+      <div class="tracker-label" style="margin-bottom:6px;">Ammunition</div>
+      <ul class="inv-list" style="margin-bottom:12px;">
+        <li>2 cases hand crossbow bolts <span class="inv-note">drow cocoons S4; quantity per case unconfirmed (standard 20)</span></li>
+      </ul>
+      <div class="tracker-label" style="margin-bottom:6px;">Consumables</div>
+      <ul class="inv-list" style="margin-bottom:12px;">
+        <li>Potion of healing <span class="inv-note">orog loot, S10</span></li>
+        <li>Potion of greater healing <span class="inv-note">orog loot, S10</span></li>
+        <li>Potion of fire breath <span class="inv-note">orog loot, S10</span></li>
+        <li>4 vials thick dark liquid <span class="inv-note">⚠ unidentified — S3 and S4 drow</span></li>
+        <li>6 rations <span class="inv-note">drow ambush S3; in small bags</span></li>
+        <li>3 barrelstalk fungi <span class="inv-note">3 of 6 remaining from Mesrim</span></li>
+        <li>1 bottle red gimmerith <span class="inv-note">⚠ unidentified — fountain room S6</span></li>
+        <li>1 vial of unguent <span class="inv-note">⚠ unidentified — fountain room S6</span></li>
+        <li>1 old ration <span class="inv-note">poor condition; not safe to eat; in Facrus's backpack</span></li>
+      </ul>
+      <div class="tracker-label" style="margin-bottom:6px;">Scrolls</div>
+      <ul class="inv-list" style="margin-bottom:12px;">
+        <li>Spell scroll of shocking grasp <span class="inv-note">orog loot, S10</span></li>
+        <li>Spell scroll of spare the dying <span class="inv-note">orog loot, S10</span></li>
+        <li>Spell scroll of true strike <span class="inv-note">orog loot, S10</span></li>
+      </ul>
+      <div class="tracker-label" style="margin-bottom:6px;">Documents &amp; Miscellaneous</div>
+      <ul class="inv-list" style="margin-bottom:12px;">
+        <li>Scroll map — Lost Tomb of Karam <span class="inv-note">Facrus's; Facrus dead S8; physical holder unconfirmed</span></li>
+        <li>Glass jar with flesh in pickling fluid <span class="inv-note">tower loot S8; significance unknown</span></li>
+        <li>Half-blueprint of a castle <span class="inv-note">tower loot S8; significance unknown</span></li>
+        <li>Bronze pinnacle with rat's head etching <span class="inv-note">tower loot S8; significance unknown</span></li>
+        <li>Exterior casing of a tiny silver bell <span class="inv-note">tower loot S8; significance unknown</span></li>
+        <li>Glass vial of nail clippings <span class="inv-note">tower loot S8; significance unknown</span></li>
+      </ul>
+      <div class="tracker-label" style="margin-bottom:6px;">NPC Follower Equipment</div>
+      <ul class="inv-list" style="margin-bottom:12px;">
+        <li>1 hand crossbow <span class="inv-note">unnamed NPC; S2 armory</span></li>
+        <li>1 chain shirt <span class="inv-note">unnamed NPC; S2 armory</span></li>
+        <li>20 hand crossbow bolts <span class="inv-note">unnamed NPC; S2 armory</span></li>
+      </ul>
+      <div class="tracker-label" style="margin-bottom:6px;">Currency</div>
+      <ul class="inv-list">
+        <li>Zara: 20 gp</li>
+        <li>Vespera: 1 cp</li>
+        <li>Party pool: 119 sp <span class="inv-note">121 sp from S10; −2 sp in S11 transactions</span></li>
+        <li>Party pool: 347 gp <span class="inv-note">68 gp from S10 + 279 gp net from S11 Blade Bazaar transactions</span></li>
+        <li>Party pool: 9 electrum <span class="inv-note">orog loot S10</span></li>
+        <li>Party pool: 18 cp <span class="inv-note">orog loot S10</span></li>
+      </ul>
+    </div>
+  </div>
+
+</div><!-- /tab-inv -->
+
+
+<!-- ═══════════════════════════════════════════════
+     TAB: THREADS
+══════════════════════════════════════════════════ -->
+<div class="tab-content" id="tab-threads">
+
+  <!-- Equipment -->
+  <div class="section">
+    <div class="thread-category">Equipment / Mechanics</div>
+    <div class="thread-item">
+      <span><span class="thread-key">Original equipment</span> — longbow, quiver, and arrows replaced via S11 purchases. Original component pouch still missing; Hadrin's assembled pouch available outside combat.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">4 dark vials</span> — looted S3 and S4; unidentified</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Red gimmerith</span> — fountain room S6; unidentified; flagged for DM</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Vial of unguent</span> — fountain room S6; unidentified; flagged for DM</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Zara's holy symbol</span> — visible in Themberchaud's hoard S11; missing since Session 1 when equipment was stripped by the drow; not yet retrieved.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Zara's mace situation</span> — carries both her S4 mace and the Torch Mace received S11; whether she retains both long-term is unrecorded.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Gold pins (broken arrow symbol)</span> — issued by Themberchaud S11; the broken arrow holy symbol has been seen around Gracklstugh but its affiliation is not recognized by the party.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Errde Blackskull's conspiracy target</span> — faction name unclear in notes (recorded as "coluncel of sivance"); flagged for DM confirmation.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">New weapon assignments S11</span> — 3 rapiers, 3 whips, 1 gnarled quarterstaff purchased at the Blade Bazaar; distributed to specific party members at the table but not recorded.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">David el Gnomo's armor</span> — purchased for 100 gp S11; type unconfirmed (homebrew pricing); flagged for DM confirmation.</span>
+    </div>
+  </div>
+
+  <!-- NPCs & Followers -->
+  <div class="section">
+    <div class="thread-category">NPCs &amp; Followers</div>
+    <div class="thread-item">
+      <span><span class="thread-key">Buppido</span> — departed S11; circumstances unrecorded. Long-standing suspicion figure — cut backpack S8; confronted by Mercy S10, denied it. His departure in Gracklstugh without explanation is itself notable.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Werz Saltbarren murder</span> — found dead at Darklake docks S11; multiple cauterized stab wounds; killer unknown. Party cleared of suspicion. Mace was never delivered; identified as Torch Mace S11 and given to Zara.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Hemeth</span> — departed S11; circumstances unrecorded. Duergar whose presence had aided the party's entry to Gracklstugh (S10).</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Gartokkar</span> — Keeper of the Flame representative who escorted the party to Themberchaud S11; further role unknown.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Themberchaud liaison</span> — guard assigned by Themberchaud S11 to work with the party; name not recorded at the table.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">The nude man</span> — encountered three times; grappled by Mercy S10; claims to have a quest; identity and purpose unknown</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Mind flayer on the island</span> — disguised as old woman near Darklake S10; offered knowledge for "a moment of our time"; party declined; githyanki heading toward island at session end</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Githyanki patrol</span> — heading toward mind flayer's island as of S10 session end; outcome unknown</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Sewn-mouth humanoids</span> — 4 left alive in fungi chamber S10; race and origin unknown; 2 killed by Vespera</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Injured drow (S2)</span> — helped party escape; fate unknown</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Strange travelers</span> — woman, 2 men, 3 children; claimed Order of the Unicorn; Mercy skeptical; S3</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Archpriest Ploopploopeen</span> — mind destroyed by Darklake creature; left in Sloobludop S5</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Skriss &amp; Society of Brilliance</span> — troglodyte scholar; Faerzress/demonic incursion theory (S10); other Society members exist; significance unknown</span>
+    </div>
+  </div>
+
+  <!-- Creatures & Locations -->
+  <div class="section">
+    <div class="thread-category">Creatures &amp; Locations</div>
+    <div class="thread-item">
+      <span><span class="thread-key">Themberchaud</span> — red dragon of Gracklstugh; "Father of Flame, Foundry's Heart." Party is his agents: fulfill Keepers of the Flame requests but report to him first. Issued gold pins (S11).</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Droki</span> — duergar in West Cleft District; linked to a conspiracy and to the Gray Ghosts; party tasked by Errde Blackskull (capture/kill) and Themberchaud (follow to find the Gray Ghosts).</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">The Gray Ghosts</span> — thieves' guild in Gracklstugh; stole Themberchaud's red dragon egg; believed responsible for the Faerzress disturbance; party must recover the artifact they used.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Errde Blackskull</span> — Captain of the Stone Guard; interrogated the party after Werz's murder; cleared them and assigned the Droki mission in exchange for safe passage out of Gracklstugh.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Darklake creature</span> — 30ft tall; emerged as Archpriestess died S5; nature unknown</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Draconic creatures</span> — small, sharp-toothed, draconic; filled dragon battle chamber S9; species unknown</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Dragon skeleton</span> — species unconfirmed; Hemeth has red dragon experience only</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Beholder corpse</span> — eyestalks deliberately severed; unknown party; S5</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Trap corridor</span> — 12 puncture wounds, 12 wall holes; trap or creature unconfirmed; S9</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">The worm</span> — killed all kuo-toa in altar chamber S8; species unknown</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Ixitxachitl</span> — present in Darklake during altar encounter S5; significance unknown</span>
+    </div>
+    <div class="thread-item urgent">
+      <span><span class="thread-key">Drow caravan</span> — Mergo reported one nearby S7; direction and composition unknown; possible pursuit threat</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Directional sign</span> — one branch toward surface S5; route and distance not recorded</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Second land bridge moaning</span> — source unknown S8</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Lost Tomb of Karam</span> — Facrus's scroll map; Facrus dead; map in party pool; pursuit undecided</span>
+    </div>
+  </div>
+
+  <!-- Mechanics & Unidentified Items -->
+  <div class="section">
+    <div class="thread-category">Mechanics, Items &amp; Mysteries</div>
+    <div class="thread-item">
+      <span><span class="thread-key">Insanity mechanic</span> — homebrew; threshold effects unknown; flagged for DM</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">David's hourglass</span> — sand freezes at top; moves upward when inverted; properties unknown; flagged for DM</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Spine staff</span> — held by Willow; belonged to unknown humanoid; properties unknown; Hadrin suspects cursed</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Alchemy jug</span> — held by David; full capabilities unrecorded; first noted S9</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Arcane spellbook</span> — given to David S4; contents unexamined</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Zara's shield</span> — confirmed sun deity, not Zara's; specific deity unidentified</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Dragon bones and teeth</span> — taken by David S9; quantity unrecorded; significance unknown</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Willow's Starry Form / Chalice constellation</span> — newly revealed S9; mechanical effects unrecorded; flagged for clarification</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Tower forcefield</span> — invisible barrier on 4th floor window S8; properties unknown</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Willow's star map</span> — valued as much as reaching surface; significance unknown</span>
+    </div>
+  </div>
+
+</div><!-- /tab-threads -->
+
+
+<script>
+// ─── STATE ────────────────────────────────────────
+const DEFAULT_STATE = {
+  bolts: 34,
+  arrows: 40,
+  hp: 40,
+  tempHp: 0,
+  hitDice: [true, true, true, true],
+  spells: [true, true, true],
+  hunterSense: [true, true, true],
+  favoredFoe: [true, true],
+  supportPoints: 10,
+};
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem('vespera-state');
+    if (saved) return Object.assign({}, DEFAULT_STATE, JSON.parse(saved));
+  } catch(e) {}
+  return Object.assign({}, DEFAULT_STATE);
+}
+
+function saveState(state) {
+  try {
+    localStorage.setItem('vespera-state', JSON.stringify(state));
+  } catch(e) {}
+}
+
+let state = loadState();
+
+// ─── RENDER ───────────────────────────────────────
+function renderAll() {
+  // Bolts
+  document.getElementById('bolt-display').textContent = state.bolts;
+
+  // Arrows
+  document.getElementById('arrow-display').textContent = state.arrows;
+
+  // HP
+  document.getElementById('hp-display').textContent = state.hp;
+
+  // Temp HP
+  document.getElementById('thp-display').textContent = state.tempHp;
+
+  // Hit Dice
+  document.querySelectorAll('#hd-pips .pip').forEach((pip, i) => {
+    pip.classList.toggle('filled', state.hitDice[i]);
+  });
+
+  // Spell slots
+  document.querySelectorAll('#spell-pips .pip').forEach((pip, i) => {
+    pip.classList.toggle('filled', state.spells[i]);
+  });
+
+  // Hunter's Sense
+  document.querySelectorAll('#hs-pips .pip').forEach((pip, i) => {
+    pip.classList.toggle('filled', state.hunterSense[i]);
+  });
+
+  // Favored Foe
+  document.querySelectorAll('#ff-pips .pip').forEach((pip, i) => {
+    pip.classList.toggle('filled', state.favoredFoe[i]);
+    pip.classList.toggle('purple-pip', state.favoredFoe[i]);
+  });
+
+  // Support points
+  document.getElementById('sp-display').textContent = state.supportPoints;
+}
+
+renderAll();
+
+// ─── BOLTS ────────────────────────────────────────
+document.getElementById('bolt-dec').addEventListener('click', () => {
+  if (state.bolts > 0) { state.bolts--; saveState(state); renderAll(); }
+});
+document.getElementById('bolt-inc').addEventListener('click', () => {
+  state.bolts++; saveState(state); renderAll();
+});
+
+// ─── ARROWS ───────────────────────────────────────
+document.getElementById('arrow-dec').addEventListener('click', () => {
+  if (state.arrows > 0) { state.arrows--; saveState(state); renderAll(); }
+});
+document.getElementById('arrow-inc').addEventListener('click', () => {
+  state.arrows++; saveState(state); renderAll();
+});
+
+// ─── HP ───────────────────────────────────────────
+document.getElementById('hp-dec').addEventListener('click', () => {
+  if (state.hp > 0) { state.hp--; saveState(state); renderAll(); }
+});
+document.getElementById('hp-inc').addEventListener('click', () => {
+  if (state.hp < 40) { state.hp++; saveState(state); renderAll(); }
+});
+
+// ─── TEMP HP ──────────────────────────────────────
+document.getElementById('thp-dec').addEventListener('click', () => {
+  if (state.tempHp > 0) { state.tempHp--; saveState(state); renderAll(); }
+});
+document.getElementById('thp-inc').addEventListener('click', () => {
+  state.tempHp++; saveState(state); renderAll();
+});
+
+// ─── PIPS ─────────────────────────────────────────
+function bindPips(containerId, stateKey, max) {
+  document.querySelectorAll('#' + containerId + ' .pip').forEach((pip, i) => {
+    pip.addEventListener('click', () => {
+      state[stateKey][i] = !state[stateKey][i];
+      saveState(state);
+      renderAll();
+    });
+  });
+}
+
+bindPips('spell-pips', 'spells', 3);
+bindPips('hs-pips', 'hunterSense', 3);
+bindPips('ff-pips', 'favoredFoe', 2);
+bindPips('hd-pips', 'hitDice', 4);
+
+// ─── SUPPORT POINTS ──────────────────────────────
+document.getElementById('sp-dec').addEventListener('click', () => {
+  if (state.supportPoints > 0) { state.supportPoints--; saveState(state); renderAll(); }
+});
+document.getElementById('sp-inc').addEventListener('click', () => {
+  if (state.supportPoints < 10) { state.supportPoints++; saveState(state); renderAll(); }
+});
+
+// ─── LONG REST ────────────────────────────────────
+document.getElementById('long-rest-btn').addEventListener('click', () => {
+  if (!confirm('Take a long rest? This will reset HP to max, clear temp HP, restore up to 2 hit dice, reset spell slots, Hunter\'s Sense, Favored Foe uses, and restore all support points.')) return;
+  state.hp = 40;
+  state.tempHp = 0;
+  // Restore half of max hit dice rounded down = 2 (half of 4)
+  const hdMax = 4;
+  const restore = Math.floor(hdMax / 2);
+  let restored = 0;
+  for (let i = 0; i < state.hitDice.length && restored < restore; i++) {
+    if (!state.hitDice[i]) { state.hitDice[i] = true; restored++; }
+  }
+  state.spells = [true, true, true];
+  state.hunterSense = [true, true, true];
+  state.favoredFoe = [true, true];
+  state.supportPoints = DEFAULT_STATE.supportPoints;
+  saveState(state);
+  renderAll();
+});
+
+// ─── ROLL20-STYLE HP EDIT (supports +2, −3, or absolute) ─────
+function setupRoll20Edit(displayId, stateKey, min, max) {
+  const el = document.getElementById(displayId);
+  if (!el) return;
+  el.addEventListener('click', function() {
+    if (el.style.display === 'none') return;
+    const cur = state[stateKey] !== undefined ? state[stateKey] : 0;
+    const inp = document.createElement('input');
+    inp.type = 'text';
+    inp.placeholder = String(cur);
+    const cs = window.getComputedStyle(el);
+    inp.style.fontFamily = cs.fontFamily;
+    inp.style.fontSize = cs.fontSize;
+    inp.style.fontWeight = cs.fontWeight;
+    inp.style.color = cs.color;
+    inp.style.width = Math.max(el.offsetWidth + 20, 90) + 'px';
+    inp.style.textAlign = 'center';
+    inp.style.background = 'var(--bg3)';
+    inp.style.border = '1px solid var(--gold-dim)';
+    inp.style.borderRadius = 'var(--radius)';
+    inp.style.lineHeight = '1';
+    inp.style.display = 'block';
+    inp.style.padding = '2px 4px';
+    el.style.display = 'none';
+    el.parentNode.insertBefore(inp, el);
+    inp.focus();
+    let committed = false;
+    function commit() {
+      if (committed) return;
+      committed = true;
+      const raw = inp.value.trim();
+      let newVal = cur;
+      if (raw === '' || raw === '+' || raw === '-') {
+        newVal = cur;
+      } else if (raw.startsWith('+')) {
+        const delta = parseInt(raw.slice(1), 10);
+        newVal = isNaN(delta) ? cur : cur + delta;
+      } else if (raw.startsWith('-') || raw.startsWith('−')) {
+        const delta = parseInt(raw.replace('−', '-').slice(1), 10);
+        newVal = isNaN(delta) ? cur : cur - delta;
+      } else {
+        const abs = parseInt(raw, 10);
+        newVal = isNaN(abs) ? cur : abs;
+      }
+      if (min != null) newVal = Math.max(min, newVal);
+      if (max != null) newVal = Math.min(max, newVal);
+      state[stateKey] = newVal;
+      saveState(state);
+      if (inp.parentNode) inp.remove();
+      el.style.display = '';
+      renderAll();
+    }
+    inp.addEventListener('blur', commit);
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Enter') { e.preventDefault(); commit(); }
+      if (e.key === 'Escape') { committed = true; if (inp.parentNode) inp.remove(); el.style.display = ''; }
+    });
+  });
+}
+
+// ─── DIRECT EDIT (tap number to type a value) ─────
+function setupDirectEdit(displayId, stateKey, min, max) {
+  const el = document.getElementById(displayId);
+  if (!el) return;
+  el.style.cursor = 'pointer';
+  el.title = 'Tap to set value directly';
+  el.addEventListener('click', function() {
+    if (el.querySelector('input')) return; // already editing
+    const cur = state[stateKey] !== undefined ? state[stateKey] : 0;
+    const inp = document.createElement('input');
+    inp.type = 'number';
+    inp.value = cur;
+    if (min != null) inp.min = min;
+    if (max != null) inp.max = max;
+    const cs = window.getComputedStyle(el);
+    inp.style.fontFamily = cs.fontFamily;
+    inp.style.fontSize = cs.fontSize;
+    inp.style.fontWeight = cs.fontWeight;
+    inp.style.color = cs.color;
+    inp.style.width = (el.offsetWidth + 20) + 'px';
+    inp.style.textAlign = 'center';
+    inp.style.background = 'var(--bg3)';
+    inp.style.border = '1px solid var(--gold-dim)';
+    inp.style.borderRadius = 'var(--radius)';
+    inp.style.lineHeight = '1';
+    inp.style.display = 'block';
+    inp.style.padding = '2px 4px';
+    el.style.display = 'none';
+    el.parentNode.insertBefore(inp, el);
+    inp.focus(); inp.select();
+    function commit() {
+      let v = parseInt(inp.value, 10);
+      if (isNaN(v)) v = cur;
+      if (min != null) v = Math.max(min, v);
+      if (max != null) v = Math.min(max, v);
+      state[stateKey] = v;
+      saveState(state);
+      inp.remove();
+      el.style.display = '';
+      renderAll();
+    }
+    inp.addEventListener('blur', commit);
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Enter') { e.preventDefault(); commit(); }
+      if (e.key === 'Escape') { inp.remove(); el.style.display = ''; }
+    });
+  });
+}
+
+setupDirectEdit('bolt-display', 'bolts', 0, null);
+setupDirectEdit('arrow-display', 'arrows', 0, null);
+setupRoll20Edit('hp-display', 'hp', 0, 40);
+setupRoll20Edit('thp-display', 'tempHp', 0, null);
+setupDirectEdit('sp-display', 'supportPoints', 0, 10);
+
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+    try { localStorage.setItem('vespera-tab', tab); } catch(e) {}
+  });
+});
+
+// Restore tab
+try {
+  const savedTab = localStorage.getItem('vespera-tab');
+  if (savedTab) {
+    const btn = document.querySelector('.tab-btn[data-tab="' + savedTab + '"]');
+    if (btn) btn.click();
+  }
+} catch(e) {}
+
+// ─── FEATURE ACCORDIONS ──────────────────────────
+document.querySelectorAll('.accordion-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const id = btn.dataset.acc;
+    const body = document.getElementById(id);
+    if (!body) return;
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+  });
+});
+
+// ─── RISK ACCORDIONS ─────────────────────────────
+document.querySelectorAll('.risk-header').forEach(header => {
+  header.addEventListener('click', () => {
+    const level = header.dataset.risk;
+    const body = document.getElementById('risk-' + level);
+    if (!body) return;
+    const isOpen = body.classList.contains('open');
+    body.classList.toggle('open', !isOpen);
+    const arrow = header.querySelector('.acc-arrow');
+    if (arrow) arrow.style.transform = isOpen ? '' : 'rotate(90deg)';
+  });
+});
+</script>
+
+</body>
+</html>
