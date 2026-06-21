@@ -13,10 +13,10 @@
     --bg2:       #131318;
     --bg3:       #1a1a22;
     --bg4:       #21212c;
-    --border:    #2e2e3e;
+    --border:    #454560;
     --border2:   #3a3a50;
     --gold:      #c9a84c;
-    --gold-dim:  #8a6e2f;
+    --gold-dim:  #b8922e;
     --gold-glow: rgba(201,168,76,0.12);
     --amber:     #e8943a;
     --red:       #c0392b;
@@ -24,9 +24,9 @@
     --green:     #4a8c5c;
     --green-dim: #2a5c3a;
     --purple:    #7a5c9c;
-    --text:      #ddd8cc;
-    --text-dim:  #8a8478;
-    --text-muted:#5a5450;
+    --text:      #eeebe3;
+    --text-dim:  #b8b2a8;
+    --text-muted:#9a9490;
     --warn:      #c0392b;
     --warn-bg:   rgba(192,57,43,0.12);
     --slot-on:   #c9a84c;
@@ -41,7 +41,7 @@
     background: var(--bg);
     color: var(--text);
     font-family: 'Crimson Pro', Georgia, serif;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
     min-height: 100vh;
     overflow-x: hidden;
@@ -149,6 +149,7 @@
     padding: 8px 12px 6px;
     background: var(--bg3);
     border-bottom: 1px solid var(--border);
+    border-left: 3px solid var(--gold-dim);
   }
 
   .section-body { padding: 10px 12px; }
@@ -900,8 +901,8 @@
     <div class="subtitle">Wood Elf · Monster Slayer Ranger 4 · Haunted One</div>
   </div>
   <div class="header-badge" style="text-align:center; line-height:1.3;">
-    <div>Session 11</div>
-    <div style="font-size:0.6rem; color:var(--text-muted); margin-top:1px;">6/13/2026</div>
+    <div>Session 12</div>
+    <div style="font-size:0.6rem; color:var(--text-muted); margin-top:1px;">6/20/2026</div>
   </div>
 </header>
 
@@ -940,7 +941,7 @@
         <div class="tracker-wrap" style="padding:6px 0 2px;">
           <div class="bolt-counter" style="gap:10px;">
             <button class="counter-btn" id="arrow-dec" style="width:40px;height:40px;" aria-label="Decrease arrows">−</button>
-            <div class="bolt-num" id="arrow-display" style="font-size:2.2rem; min-width:50px;">40</div>
+            <div class="bolt-num" id="arrow-display" style="font-size:2.2rem; min-width:50px;">37</div>
             <button class="counter-btn" id="arrow-inc" style="width:40px;height:40px;" aria-label="Increase arrows">+</button>
           </div>
         </div>
@@ -1297,7 +1298,7 @@
     </div>
     <div style="text-align:right;">
       <div class="dest-label">Status</div>
-      <div style="font-size:0.82rem; color: #6bc98a;">In city — tracking Droki in West Cleft District (S11)</div>
+      <div style="font-size:0.82rem; color: #6bc98a;">West Cleft District — mid-exploration of the Faerzress cavern, pursuing Droki (S12)</div>
     </div>
   </div>
 
@@ -1399,8 +1400,24 @@
         <span class="res-val text-muted">in party pool (S10)</span>
       </div>
       <div class="res-row">
+        <span class="res-key">Purple-dot mushrooms</span>
+        <span class="res-val">Willow: 2 · Mercy: some <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">restores shrunk creature to normal size (S12)</span></span>
+      </div>
+      <div class="res-row">
+        <span class="res-key">Blue-cap, white-dot mushrooms</span>
+        <span class="res-val">Willow: 2 · Mercy: some <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">shrinks the eater (S12)</span></span>
+      </div>
+      <div class="res-row">
+        <span class="res-key">Keoghtom's Ointment</span>
+        <span class="res-val">1 jar, 4 doses <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">party pool (S12); cures poison/disease/blindness/deafness/paralysis or 2d8+2 HP per dose</span></span>
+      </div>
+      <div class="res-row">
         <span class="res-key">Party pool gold</span>
-        <span class="res-val">~347 gp <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">68 gp from S10 + 279 gp net from S11 Blade Bazaar</span></span>
+        <span class="res-val">~392 gp <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">347 gp from S11 + 45 gp looted S12</span></span>
+      </div>
+      <div class="res-row">
+        <span class="res-key">Party pool silver</span>
+        <span class="res-val">~134 sp <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">119 sp from S11 + 15 sp looted S12</span></span>
       </div>
     </div>
   </div>
@@ -1660,7 +1677,7 @@
         <li>Hand crossbow</li>
         <li>Hand crossbow bolts <span class="inv-note">see Gear tab counter</span></li>
         <li>Quiver <span class="inv-note">purchased S11</span></li>
-        <li>40 arrows <span class="inv-note">purchased S11 — tracked by Arrows counter on Combat tab</span></li>
+        <li>37 arrows <span class="inv-note">40 from S11; −6 fired, +3 recovered S12 — tracked by Arrows counter on Combat tab</span></li>
         <li>Shortsword ×2</li>
         <li>1 copper piece</li>
         <li>Haunted Spool of Endless Silk <span class="inv-note">recovered S5</span></li>
@@ -1705,6 +1722,8 @@
         <li>Dragon claw pendant <span class="inv-note">looted from mummified corpse cocoon, S4</span></li>
         <li>Suit of plate mail armor <span class="inv-note">looted from orog ambush, S9; now equipped</span></li>
         <li>Greataxe <span class="inv-note">looted from orog ambush, S9</span></li>
+        <li>Purple-dot mushrooms <span class="inv-note">S12; quantity unspecified; restores a shrunk creature to normal size</span></li>
+        <li>Blue-cap, white-dot mushrooms <span class="inv-note">S12; quantity unspecified; shrinks the eater</span></li>
         <li><em style="color:var(--text-muted);">Scale mail — given to Hadrin, S10 (confirmed as Mercy's prior unrecorded armor)</em></li>
       </ul>
     </div>
@@ -1732,6 +1751,8 @@
       <ul class="inv-list">
         <li>Star map <span class="inv-note">purchased from Mergo, S7; significance unknown</span></li>
         <li>Spine staff <span class="inv-note">recovered from kuo-toa altar, S8; properties unknown; possibly cursed</span></li>
+        <li>2 purple-dot mushrooms <span class="inv-note">S12; restores a shrunk creature to normal size</span></li>
+        <li>2 blue-cap, white-dot mushrooms <span class="inv-note">S12; shrinks the eater</span></li>
       </ul>
     </div>
   </div>
@@ -1750,6 +1771,8 @@
         <li>Alchemy jug <span class="inv-note">first recorded S9; full capabilities unrecorded</span></li>
         <li>Dragon bones and teeth <span class="inv-note">taken from dragon skeleton S9; quantity unrecorded</span></li>
         <li>Suit of armor <span class="inv-note">purchased at Blade Bazaar S11; type unconfirmed — 100 gp (homebrew pricing); flagged for DM confirmation</span></li>
+        <li>1 jar of smelting <span class="inv-note">S12; purpose unknown</span></li>
+        <li>Several books <span class="inv-note">S12; contain 2 Dwarvish scrolls and 6 Dwarvish names — 2 matched two-headed statue heads (Dohoon, Grehud); remaining 4 names and scrolls unread</span></li>
       </ul>
     </div>
   </div>
@@ -1797,6 +1820,9 @@
       </ul>
       <div class="tracker-label" style="margin-bottom:6px;">Documents &amp; Miscellaneous</div>
       <ul class="inv-list" style="margin-bottom:12px;">
+        <li>1 key <span class="inv-note">worn around neck; looted from chanting derro, S12 statue chamber; what it opens unknown</span></li>
+        <li>1 bag <span class="inv-note">looted from same chanting derro, S12; contents unknown</span></li>
+        <li>1 jar of Keoghtom's Ointment <span class="inv-note">4 doses, unused (S12)</span></li>
         <li>Scroll map — Lost Tomb of Karam <span class="inv-note">Facrus's; Facrus dead S8; physical holder unconfirmed</span></li>
         <li>Glass jar with flesh in pickling fluid <span class="inv-note">tower loot S8; significance unknown</span></li>
         <li>Half-blueprint of a castle <span class="inv-note">tower loot S8; significance unknown</span></li>
@@ -1814,8 +1840,8 @@
       <ul class="inv-list">
         <li>Zara: 20 gp</li>
         <li>Vespera: 1 cp</li>
-        <li>Party pool: 119 sp <span class="inv-note">121 sp from S10; −2 sp in S11 transactions</span></li>
-        <li>Party pool: 347 gp <span class="inv-note">68 gp from S10 + 279 gp net from S11 Blade Bazaar transactions</span></li>
+        <li>Party pool: 134 sp <span class="inv-note">119 sp from S11 + 15 sp looted S12</span></li>
+        <li>Party pool: 392 gp <span class="inv-note">347 gp from S11 + 45 gp looted S12</span></li>
         <li>Party pool: 9 electrum <span class="inv-note">orog loot S10</span></li>
         <li>Party pool: 18 cp <span class="inv-note">orog loot S10</span></li>
       </ul>
@@ -1863,11 +1889,32 @@
     <div class="thread-item">
       <span><span class="thread-key">David el Gnomo's armor</span> — purchased for 100 gp S11; type unconfirmed (homebrew pricing); flagged for DM confirmation.</span>
     </div>
+    <div class="thread-item">
+      <span><span class="thread-key">4 unidentified Dwarvish names (S12)</span> — 6 names found in books looted from the statue chamber; 2 matched the two-headed statue's heads (Dohoon, Grehud); remaining 4 unidentified.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">2 Dwarvish scrolls and looted books (S12)</span> — not yet read; Vespera intends to use an Investigation check to decipher them.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Droki's interest in spell scrolls</span> — reportedly seeking spell scrolls; reason unknown.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Key and bag from chanting derro (S12)</span> — key was worn around the neck; bag looted from the same derro in the statue chamber; what the key opens and the bag's contents are unknown.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Jar of smelting (David, S12)</span> — looted from the statue chamber; purpose unknown.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Willow's wall marking (S12)</span> — marked the tunnel wall at a fork point using an unfamiliar method; rest of party did not recognize it; purpose unknown.</span>
+    </div>
   </div>
 
   <!-- NPCs & Followers -->
   <div class="section">
     <div class="thread-category">NPCs &amp; Followers</div>
+    <div class="thread-item">
+      <span><span class="thread-key">Unidentified derro (S12)</span> — stabbed Hadrin during questioning at the West Cleft District settlement; separate from Droki; identity and motive unknown.</span>
+    </div>
     <div class="thread-item">
       <span><span class="thread-key">Buppido</span> — departed S11; circumstances unrecorded. Long-standing suspicion figure — cut backpack S8; confronted by Mercy S10, denied it. His departure in Gracklstugh without explanation is itself notable.</span>
     </div>
@@ -1916,7 +1963,7 @@
       <span><span class="thread-key">Themberchaud</span> — red dragon of Gracklstugh; "Father of Flame, Foundry's Heart." Party is his agents: fulfill Keepers of the Flame requests but report to him first. Issued gold pins (S11).</span>
     </div>
     <div class="thread-item">
-      <span><span class="thread-key">Droki</span> — duergar in West Cleft District; linked to a conspiracy and to the Gray Ghosts; party tasked by Errde Blackskull (capture/kill) and Themberchaud (follow to find the Gray Ghosts).</span>
+      <span><span class="thread-key">Droki</span> — confirmed as a derro (not duergar as earlier noted); linked to a conspiracy and to the Gray Ghosts; party tasked by Errde Blackskull (capture/kill) and Themberchaud (follow to find the Gray Ghosts). Evaded capture S12 by eating a mushroom that shrank him and fleeing through a narrow crack into the Faerzress cavern; current whereabouts unknown.</span>
     </div>
     <div class="thread-item">
       <span><span class="thread-key">The Gray Ghosts</span> — thieves' guild in Gracklstugh; stole Themberchaud's red dragon egg; believed responsible for the Faerzress disturbance; party must recover the artifact they used.</span>
@@ -1925,7 +1972,10 @@
       <span><span class="thread-key">Errde Blackskull</span> — Captain of the Stone Guard; interrogated the party after Werz's murder; cleared them and assigned the Droki mission in exchange for safe passage out of Gracklstugh.</span>
     </div>
     <div class="thread-item">
-      <span><span class="thread-key">Darklake creature</span> — 30ft tall; emerged as Archpriestess died S5; nature unknown</span>
+      <span><span class="thread-key">Demogorgon</span> — name overheard among chanting derro in the Faerzress cavern statue chamber (S12); same term previously heard in Sloobludop (S5) in connection with the 30-ft. creature from the Darklake; significance and connection unconfirmed.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Darklake creature</span> — 30ft tall; emerged as Archpriestess died S5; nature unknown; possibly connected to the name "Demogorgon" overheard in S12 — connection unconfirmed</span>
     </div>
     <div class="thread-item">
       <span><span class="thread-key">Draconic creatures</span> — small, sharp-toothed, draconic; filled dragon battle chamber S9; species unknown</span>
@@ -2001,7 +2051,7 @@
 // ─── STATE ────────────────────────────────────────
 const DEFAULT_STATE = {
   bolts: 34,
-  arrows: 40,
+  arrows: 37,
   hp: 40,
   tempHp: 0,
   hitDice: [true, true, true, true],
