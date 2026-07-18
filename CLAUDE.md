@@ -6,20 +6,22 @@ This is the Claude Code project context file. It is read automatically at the st
 
 ## What This Project Is
 
-`index.html` is a single self-contained HTML reference page for a D&D 5e character named Vespera, used at the game table. It is deployed at https://vespera.derek.games/. All CSS and JavaScript are inline — there are no external stylesheets or script files.
+`docs/index.html` is a single self-contained HTML reference page for a D&D 5e character named Vespera, used at the game table. It is deployed via GitHub Pages at https://vespera.derek.games/ (Pages source: `docs/` folder on `main`). All CSS and JavaScript are inline — there are no external stylesheets or script files.
+
+The `docs/CNAME` file pins the custom domain for GitHub Pages. Do not remove or rename it.
 
 ---
 
 ## File Conventions
 
-- The HTML file in this workspace is always named `index.html`
-- After each session update, the output file should also be named `index.html` (overwrite in place)
+- The HTML file in this workspace is always named `index.html` and lives in `docs/` (the GitHub Pages source folder)
+- After each session update, the output file should also be named `docs/index.html` (overwrite in place)
 - Per-session task files are named `claude_code_task_session[#].md`
 - Reference markdown files are named `session_[#]_notes.md`, `party_inventory_session[#].md`, and `vespera_table_reference_session[#].md`
 
 ### Session File Placement
 
-New per-session files (`claude_code_task_session[#].md`, `session_[#]_notes.md`, `party_inventory_session[#].md`, `vespera_table_reference_session[#].md`) always start out dropped in the repo root. As part of completing each session's update — once `index.html` has been updated and verified — move that session's files into `sessions/session_[#]/` (creating the directory if it doesn't exist yet), using `git mv` if they're already tracked. Do this automatically without being asked. `index.html` itself stays in the repo root; only the per-session source/reference files get filed away. Standing reference material (not tied to a single session) belongs in `reference/`.
+New per-session files (`claude_code_task_session[#].md`, `session_[#]_notes.md`, `party_inventory_session[#].md`, `vespera_table_reference_session[#].md`) always start out dropped in the repo root. As part of completing each session's update — once `docs/index.html` has been updated and verified — move that session's files into `sessions/session_[#]/` (creating the directory if it doesn't exist yet), using `git mv` if they're already tracked. Do this automatically without being asked. `docs/index.html` itself stays in the `docs/` folder; only the per-session source/reference files get filed away. Standing reference material (not tied to a single session) belongs in `reference/`.
 
 ---
 
@@ -117,4 +119,4 @@ Current party size and follower details are in the per-session task file.
 
 ## Deployment
 
-Derek deploys the updated `index.html` manually. Your job is only to produce the updated file — do not attempt to push, upload, or deploy.
+The site is served by GitHub Pages from the `docs/` folder on `main`. Pushing an updated `docs/index.html` to `main` deploys it automatically — no manual upload step. Do not push to `main` unless explicitly asked to.
