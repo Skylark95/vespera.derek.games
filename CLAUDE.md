@@ -17,6 +17,10 @@ This is the Claude Code project context file. It is read automatically at the st
 - Per-session task files are named `claude_code_task_session[#].md`
 - Reference markdown files are named `session_[#]_notes.md`, `party_inventory_session[#].md`, and `vespera_table_reference_session[#].md`
 
+### Session File Placement
+
+New per-session files (`claude_code_task_session[#].md`, `session_[#]_notes.md`, `party_inventory_session[#].md`, `vespera_table_reference_session[#].md`) always start out dropped in the repo root. As part of completing each session's update — once `index.html` has been updated and verified — move that session's files into `sessions/session_[#]/` (creating the directory if it doesn't exist yet), using `git mv` if they're already tracked. Do this automatically without being asked. `index.html` itself stays in the repo root; only the per-session source/reference files get filed away. Standing reference material (not tied to a single session) belongs in `reference/`.
+
 ---
 
 ## Page Structure

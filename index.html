@@ -898,11 +898,11 @@
 <header class="site-header">
   <div class="header-title">
     <h1>VESPERA</h1>
-    <div class="subtitle">Wood Elf · Monster Slayer Ranger 4 · Haunted One</div>
+    <div class="subtitle">Wood Elf · Monster Slayer Ranger 5 · Haunted One</div>
   </div>
   <div class="header-badge" style="text-align:center; line-height:1.3;">
-    <div>Session 13</div>
-    <div style="font-size:0.6rem; color:var(--text-muted); margin-top:1px;">6/27/2026</div>
+    <div>Session 14</div>
+    <div style="font-size:0.6rem; color:var(--text-muted); margin-top:1px;">7/11/2026</div>
   </div>
 </header>
 
@@ -955,6 +955,20 @@
           <div class="pip filled" data-pip="spell-0" aria-label="Spell slot 1"></div>
           <div class="pip filled" data-pip="spell-1" aria-label="Spell slot 2"></div>
           <div class="pip filled" data-pip="spell-2" aria-label="Spell slot 3"></div>
+          <div class="pip filled" data-pip="spell-3" aria-label="Spell slot 4"></div>
+        </div>
+        <div style="text-align:center; margin-top:4px;">
+          <span class="inline-note">tap to expend</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Spell Slots — 2nd</div>
+      <div class="section-body">
+        <div class="pip-row" id="spell2-pips">
+          <div class="pip filled" data-pip="spell2-0" aria-label="2nd-level spell slot 1"></div>
+          <div class="pip filled" data-pip="spell2-1" aria-label="2nd-level spell slot 2"></div>
         </div>
         <div style="text-align:center; margin-top:4px;">
           <span class="inline-note">tap to expend</span>
@@ -982,9 +996,10 @@
         <div class="pip-row" id="ff-pips">
           <div class="pip filled purple-pip" data-pip="ff-0" aria-label="Favored Foe use 1"></div>
           <div class="pip filled purple-pip" data-pip="ff-1" aria-label="Favored Foe use 2"></div>
+          <div class="pip filled purple-pip" data-pip="ff-2" aria-label="Favored Foe use 3"></div>
         </div>
         <div style="text-align:center; margin-top:4px;">
-          <span class="inline-note">2 / long rest</span>
+          <span class="inline-note">3 / long rest</span>
         </div>
       </div>
     </div>
@@ -1003,10 +1018,10 @@
           <div class="tracker-label" style="text-align:center; margin-bottom:6px;">Current HP</div>
           <div class="bolt-counter" style="justify-content:center;">
             <button class="counter-btn" id="hp-dec" aria-label="Decrease HP">−</button>
-            <div class="bolt-num" id="hp-display" style="color:#c0392b; text-shadow:0 0 24px rgba(192,57,43,0.35); border-bottom:2px solid var(--red-dim); padding-bottom:2px; cursor:text;" title="Tap to adjust: +2, −3, or set directly">40</div>
+            <div class="bolt-num" id="hp-display" style="color:#c0392b; text-shadow:0 0 24px rgba(192,57,43,0.35); border-bottom:2px solid var(--red-dim); padding-bottom:2px; cursor:text;" title="Tap to adjust: +2, −3, or set directly">49</div>
             <button class="counter-btn" id="hp-inc" aria-label="Increase HP">+</button>
           </div>
-          <div style="text-align:center; margin-top:4px;"><span class="inline-note">max 40 · tap to adjust</span></div>
+          <div style="text-align:center; margin-top:4px;"><span class="inline-note">max 49 · tap to adjust</span></div>
         </div>
         <div style="width:1px; background:var(--border); flex-shrink:0;"></div>
         <div style="flex:1; min-width:90px;">
@@ -1032,7 +1047,7 @@
           <span class="stat-lbl">AC</span>
         </div>
         <div class="stat-cell">
-          <span class="stat-val">40</span>
+          <span class="stat-val">49</span>
           <span class="stat-lbl">HP Max</span>
         </div>
         <div class="stat-cell">
@@ -1040,7 +1055,7 @@
           <span class="stat-lbl">Speed</span>
         </div>
         <div class="stat-cell">
-          <span class="stat-val">15</span>
+          <span class="stat-val">16</span>
           <span class="stat-lbl">Pass. Perc</span>
         </div>
         <div class="stat-cell">
@@ -1049,11 +1064,13 @@
         </div>
       </div>
       <div class="mod-row">
-        <div class="mod-pill">Save DC <span>13</span></div>
-        <div class="mod-pill">Spell Atk <span>+5</span></div>
-        <div class="mod-pill">Stealth <span>+8</span></div>
-        <div class="mod-pill">Perception <span>+5</span></div>
-        <div class="mod-pill">Survival <span>+5</span></div>
+        <div class="mod-pill">Save DC <span>14</span></div>
+        <div class="mod-pill">Spell Atk <span>+6</span></div>
+        <div class="mod-pill">Prof. Bonus <span>+3</span></div>
+        <div class="mod-pill">Stealth <span>+10</span></div>
+        <div class="mod-pill">Perception <span>+6</span></div>
+        <div class="mod-pill">Survival <span>+6</span></div>
+        <div class="mod-pill">Investigation <span>+3</span></div>
         <div class="mod-pill">Darkvision <span>60ft</span></div>
       </div>
       <div class="inline-note" style="margin-top:6px;">AC 16 = studded leather 12 (new S11) + DEX +4</div>
@@ -1069,8 +1086,8 @@
         <div class="sp-counter">
           <button class="counter-btn" id="sp-dec" aria-label="Spend support point">−</button>
           <div>
-            <div class="sp-num" id="sp-display">10</div>
-            <div class="sp-max">max 10</div>
+            <div class="sp-num" id="sp-display">11</div>
+            <div class="sp-max">max 11</div>
           </div>
           <button class="counter-btn" id="sp-inc" aria-label="Restore support point">+</button>
         </div>
@@ -1092,9 +1109,10 @@
         <div class="pip filled" data-pip="hd-1" aria-label="Hit die 2"></div>
         <div class="pip filled" data-pip="hd-2" aria-label="Hit die 3"></div>
         <div class="pip filled" data-pip="hd-3" aria-label="Hit die 4"></div>
+        <div class="pip filled" data-pip="hd-4" aria-label="Hit die 5"></div>
       </div>
       <div style="text-align:center; margin-top:4px;">
-        <span class="inline-note">4 total · long rest restores 2</span>
+        <span class="inline-note">5 total · long rest restores 2</span>
       </div>
     </div>
   </div>
@@ -1106,21 +1124,22 @@
       <table class="atk-table">
         <tr>
           <td class="atk-name">Longbow</td>
-          <td class="atk-hit">+8</td>
+          <td class="atk-hit">+9</td>
           <td class="atk-dmg">1d8+4 piercing</td>
         </tr>
         <tr>
           <td class="atk-name">Hand Crossbow</td>
-          <td class="atk-hit">+8</td>
+          <td class="atk-hit">+9</td>
           <td class="atk-dmg">1d6+4 piercing</td>
         </tr>
         <tr>
           <td class="atk-name">Shortsword ×2</td>
-          <td class="atk-hit">+6</td>
+          <td class="atk-hit">+7</td>
           <td class="atk-dmg">1d6+4 piercing</td>
         </tr>
       </table>
-      <div class="atk-note">Longbow and Hand Crossbow both include +2 from Fighting Style: Archery. Roll20 may display +6 for the Hand Crossbow — the correct value is +8.</div>
+      <div class="atk-note">Longbow and Hand Crossbow both include +2 from Fighting Style: Archery.</div>
+      <div class="atk-note">Extra Attack (new at Level 5): Vespera can make two weapon attacks when she takes the Attack action.</div>
     </div>
   </div>
 
@@ -1160,7 +1179,7 @@
         </tr>
       </table>
       <div class="combo-note">
-        SP + HM <strong>stack</strong> (SP = no concentration). Favored Foe does <strong>NOT</strong> stack with HM — both concentration. HM stronger now; Favored Foe scales at Lv6.
+        SP + HM <strong>stack</strong> (SP = no concentration). Favored Foe does <strong>NOT</strong> stack with HM — both concentration. Favored Foe uses are now <strong>3</strong> per long rest (up from 2) at Level 5. Die size remains 1d4 — still weaker than HM's 1d6; becomes competitive at Lv6.
       </div>
     </div>
   </div>
@@ -1172,6 +1191,17 @@
   <div class="section">
     <div class="section-title">Features &amp; Abilities</div>
     <div id="features-accordion">
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="feat-ea">
+          Extra Attack
+          <span class="acc-tag">new at Level 5</span>
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="feat-ea">
+          When Vespera takes the Attack action, she can attack twice instead of once.
+        </div>
+      </div>
 
       <div class="accordion-item">
         <button class="accordion-btn" data-acc="feat-sp">
@@ -1202,7 +1232,7 @@
           <span class="acc-arrow">▶</span>
         </button>
         <div class="accordion-body" id="feat-ff">
-          On hit, mark target as favored enemy (concentration, up to 1 min). First hit each turn deals <strong>+1d4 damage</strong>. Uses = proficiency bonus (<strong>2/long rest</strong>). Does <strong>not</strong> stack with Hunter's Mark.
+          On hit, mark target as favored enemy (concentration, up to 1 min). First hit each turn deals <strong>+1d4 damage</strong>. Uses = proficiency bonus (<strong>3/long rest</strong>). Does <strong>not</strong> stack with Hunter's Mark.
         </div>
       </div>
 
@@ -1240,6 +1270,28 @@
       </div>
 
       <div class="accordion-item">
+        <button class="accordion-btn" data-acc="feat-pwt">
+          Pass without Trace
+          <span class="acc-tag">2nd-lvl spell · concentration · 1 slot · new S14</span>
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="feat-pwt">
+          Action. Masks you and companions within <strong>30 ft.</strong> from detection: <strong>+10 Dexterity (Stealth)</strong>, untrackable except by magic. Lasts up to 1 hour. Requires material component (ashes of burned mistletoe leaf and a sprig of spruce). Costs 1 spell slot.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="feat-zot">
+          Zone of Truth
+          <span class="acc-tag">2nd-lvl spell · granted by feat</span>
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="feat-zot">
+          Action. <strong>15-ft.-radius sphere</strong> within 60 ft. Creatures entering or starting their turn there must succeed a Charisma save or be unable to speak a deliberate lie for 10 minutes. Vespera knows who succeeds/fails. <em>(Additional spell granted by a feat — not counted against the standard known-spell cap.)</em>
+        </div>
+      </div>
+
+      <div class="accordion-item">
         <button class="accordion-btn" data-acc="feat-pg">
           Protection from Evil &amp; Good
           <span class="acc-tag">component via Hadrin</span>
@@ -1259,6 +1311,17 @@
         </button>
         <div class="accordion-body" id="feat-swa">
           Communicate with beasts for <strong>10 minutes</strong>. Does not cost a spell slot when cast via Primal Awareness. No material component.
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-btn" data-acc="feat-bs">
+          Beast Sense
+          <span class="acc-tag">primal awareness · free 1×/long rest · new at Lv5</span>
+          <span class="acc-arrow">▶</span>
+        </button>
+        <div class="accordion-body" id="feat-bs">
+          Touch a willing beast; use your action to see/hear through its senses (concentration, up to 1 hour). You are blinded/deafened to your own surroundings while doing so.
         </div>
       </div>
 
@@ -1294,11 +1357,11 @@
   <div class="dest-banner">
     <div>
       <div class="dest-label">Destination</div>
-      <div class="dest-name">Gracklstugh</div>
+      <div class="dest-name">Neverlight Grove</div>
     </div>
     <div style="text-align:right;">
       <div class="dest-label">Status</div>
-      <div style="font-size:0.82rem; color: #6bc98a;">at Themberchaud's lair — 2-day mission deadline to assist the Deep King</div>
+      <div style="font-size:0.82rem; color: #6bc98a;">En route — roughly 3 days into an estimated 12-day journey. Themberchaud's 48-hour deadline has lapsed; outcome unknown.</div>
     </div>
   </div>
 
@@ -1424,20 +1487,24 @@
         <span class="res-val">1 <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">party pool; received from Themberchaud, S13; nature and mechanics unknown; assumed powerful</span></span>
       </div>
       <div class="res-row">
+        <span class="res-key">Mercy's crabs</span>
+        <span class="res-val">unspecified quantity <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">new, S14; taken from the crab swarm; purpose unrecorded</span></span>
+      </div>
+      <div class="res-row">
         <span class="res-key">Party pool gold</span>
-        <span class="res-val">~393 gp <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">392 gp from S12 + 1 gp looted from Derro Savant, S13</span></span>
+        <span class="res-val">~383 gp <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">393 gp from S13 − 10 gp withdrawn, S14</span></span>
       </div>
       <div class="res-row">
         <span class="res-key">Party pool silver</span>
-        <span class="res-val">~134 sp <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">119 sp from S11 + 15 sp looted S12</span></span>
+        <span class="res-val">~134 sp <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">unchanged from S13</span></span>
       </div>
       <div class="res-row">
         <span class="res-key">Support points</span>
-        <span class="res-val">10 (9 active followers; Topsy &amp; Turvy count as 2) <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">temporarily unavailable; all followers in Gracklstugh, not with the party in the field</span></span>
+        <span class="res-val">11 (10 active followers; Topsy &amp; Turvy count as 2) <span style="font-size:0.72rem;font-weight:400;color:var(--text-muted);font-style:italic;">available; all followers traveling with the party</span></span>
       </div>
       <div class="res-row">
         <span class="res-key">Location</span>
-        <span class="res-val">Gracklstugh, at Themberchaud's lair — 2-day mission deadline to assist the Deep King</span>
+        <span class="res-val">En route to Neverlight Grove, roughly 3 days into an estimated 12-day journey</span>
       </div>
     </div>
   </div>
@@ -1453,7 +1520,7 @@
           <span class="acc-arrow">▶</span>
         </button>
         <div class="accordion-body" id="pc-vespera">
-          Wood Elf Monster Slayer Ranger 4. Navigator. Pale skin with silver veins, golden eyes, red hair. Carries Underdark map. Longbow recovered S11. Carries healer's kit and explorer's pack (S11). 3 purple-dotted mushrooms (restores a shrunk creature to normal size; new cache, S13). 3 blue-cap, white-dotted mushrooms (shrinks the eater; new cache, S13).
+          Wood Elf Monster Slayer Ranger 5. Navigator. Pale skin with silver veins, golden eyes, red hair. Carries longbow, map of the Underdark, healer's kit, explorer's pack. 3 purple-dotted mushrooms (restores a shrunk creature to normal size; new cache, S13). 3 blue-cap, white-dotted mushrooms (shrinks the eater; new cache, S13). Leveled up to 5 this session — gained Extra Attack; full stat updates on the Combat tab.
         </div>
       </div>
 
@@ -1463,7 +1530,7 @@
           <span class="acc-arrow">▶</span>
         </button>
         <div class="accordion-body" id="pc-hadrin">
-          Metallic blue skin, gold veins, silver eyes. Calm and upbeat. Nat 20 final death save, killed last orog (S9). Lost armor and chains to ooze (S6). Now wearing scale mail (from Mercy, S10). Carries light crossbow (S11), whip, greataxe, Facrus's backpack, spell component pouch (S10). Mace identified as Torch Mace S11; given to Zara.
+          Metallic blue skin, gold veins, silver eyes. Calm and upbeat. Level 5 (party-wide level-up, S14). Nat 20 final death save, killed last orog (S9). Lost armor and chains to ooze (S6). Now wearing scale mail (from Mercy, S10). Carries light crossbow (S11), whip, greataxe, Facrus's backpack, spell component pouch (S10). Mace identified as Torch Mace S11; given to Zara. Gained 1 insanity level this session from witnessing Graz'zt's appearance.
         </div>
       </div>
 
@@ -1473,7 +1540,7 @@
           <span class="acc-arrow">▶</span>
         </button>
         <div class="accordion-body" id="pc-mercy">
-          Feline humanoid. Noble. Knights of the Unicorn. Healer. 1 insanity. Wearing orog plate mail (S9). Confronted Buppido directly about cut backpack (S10) — Buppido deflected. Maul traded at Blade Bazaar S11.
+          Feline humanoid. Noble. Knights of the Unicorn. Healer. Level 5 (party-wide level-up, S14). 1 insanity. Wearing orog plate mail (S9). Confronted Buppido directly about cut backpack (S10) — Buppido deflected. Maul traded at Blade Bazaar S11. Acquired an unspecified quantity of crabs from the crab swarm this session.
         </div>
       </div>
 
@@ -1483,7 +1550,7 @@
           <span class="acc-arrow">▶</span>
         </button>
         <div class="accordion-body" id="pc-zara">
-          Pale-haired human woman. Anxious. Prays instinctively. Carries sun-deity shield (deity unconfirmed) and mace. Carries Torch Mace (magic weapon, identified S11) in addition to mace. Holy symbol recovered from Themberchaud's hoard (S13). 1 potion received from Themberchaud (S13; type unknown).
+          Pale-haired human woman. Anxious. Prays instinctively. Level 5 (party-wide level-up, S14). Carries sun-deity shield (deity unconfirmed) and mace. Carries Torch Mace (magic weapon, identified S11) in addition to mace. Holy symbol recovered from Themberchaud's hoard (S13). 1 potion received from Themberchaud (S13; type unknown).
         </div>
       </div>
 
@@ -1493,7 +1560,7 @@
           <span class="acc-arrow">▶</span>
         </button>
         <div class="accordion-body" id="pc-willow">
-          7-foot-tall, silver freckles, gray skin. Druid. Strong innate sense of direction. Carries star map (S7) and spine staff from kuo-toa altar (S8; possibly cursed). New abilities: Starry Form and Constellation of the Chalice (S9).
+          7-foot-tall, silver freckles, gray skin. Druid. Strong innate sense of direction. Level 5 (party-wide level-up, S14). Carries star map (S7) and spine staff from kuo-toa altar (S8; possibly cursed). New abilities: Starry Form and Constellation of the Chalice (S9).
         </div>
       </div>
 
@@ -1503,7 +1570,7 @@
           <span class="acc-arrow">▶</span>
         </button>
         <div class="accordion-body" id="pc-david">
-          Gnome tinkerer. Last of el Gnomo family (High Forest). Carries arcane spellbook (unexamined), wooden hourglass (properties unknown), bag of holding, alchemy jug (first noted S9), dragon bones and teeth (S9), Hadrin's damaged armor, new armor (S11; type unconfirmed; homebrew pricing). In Gracklstugh this session; not traveling with the party in the field.
+          Gnome tinkerer. Last of el Gnomo family (High Forest). Level 5 (party-wide level-up, S14). Carries arcane spellbook (unexamined), wooden hourglass (properties unknown), bag of holding, alchemy jug (first noted S9), dragon bones and teeth (S9), Hadrin's damaged armor, new armor (S11; type unconfirmed; homebrew pricing). Rejoined the party this session.
         </div>
       </div>
 
@@ -1540,14 +1607,25 @@
         </div>
         <span class="ins-count">1 lvl</span>
       </div>
+      <div class="insanity-row">
+        <span class="ins-name">Hadrin</span>
+        <div class="ins-pips">
+          <div class="ins-pip filled"></div>
+          <div class="ins-pip"></div>
+          <div class="ins-pip"></div>
+          <div class="ins-pip"></div>
+          <div class="ins-pip"></div>
+        </div>
+        <span class="ins-count">1 lvl <span style="font-style:italic;">(new, S14)</span></span>
+      </div>
       <div class="inline-note" style="margin-top:6px;">Homebrew mechanic. Threshold effects unknown — confirm with DM.</div>
     </div>
   </div>
 
   <!-- Followers -->
   <div class="section">
-    <div class="section-title">Followers (9 active)</div>
-    <div class="inline-note" style="padding:6px 12px 0;">9 active followers as of Session 13. All currently in Gracklstugh — not traveling with the party in the field this session.</div>
+    <div class="section-title">Followers (10 active)</div>
+    <div class="inline-note" style="padding:6px 12px 0;">10 active followers as of Session 14. All followers are traveling with the party in the field.</div>
     <div style="overflow-x:auto;">
       <table class="follower-table">
         <thead>
@@ -1617,7 +1695,13 @@
             <td class="f-status">✅</td>
             <td class="f-name">Glabagoul</td>
             <td class="f-pts">1</td>
-            <td class="f-desc">Gelatinous cube with an eye. Recently gained sentience. Travels with the party on foot; rode in David's bag of holding on two occasions only.</td>
+            <td class="f-desc">Gelatinous cube with an eye. Recently gained sentience. Reunited with the party this session (S14) after departing Themberchaud's lair.</td>
+          </tr>
+          <tr>
+            <td class="f-status">✅</td>
+            <td class="f-name">Rumpadump</td>
+            <td class="f-pts">1</td>
+            <td class="f-desc">Myconid. New this session (S14) — met among a group of dancing myconids celebrating a wedding; joined the party to return home to Neverlight Grove.</td>
           </tr>
           <tr class="dead">
             <td class="f-status">💀</td>
@@ -1709,7 +1793,7 @@
         <li>3 purple-dotted mushrooms <span class="inv-note">new cache, S13; restores a shrunk creature to normal size</span></li>
         <li>3 blue-cap, white-dotted mushrooms <span class="inv-note">new cache, S13; shrinks the eater</span></li>
       </ul>
-      <div class="inline-note" style="margin-top:6px;">Longbow, quiver, and arrows now in possession (S11). Original component pouch still missing; Hadrin's assembled pouch is available outside of combat.</div>
+      <div class="inline-note" style="margin-top:6px;">Longbow, quiver, and arrows now in possession (S11). Original component pouch still missing; Hadrin's assembled pouch is available outside of combat. No inventory item changes this session (S14) — Level 5 stat changes are reflected on the Combat tab, not here.</div>
     </div>
   </div>
 
@@ -1747,6 +1831,7 @@
         <li>Greataxe <span class="inv-note">looted from orog ambush, S9</span></li>
         <li>Purple-dot mushrooms <span class="inv-note">S12; quantity unspecified; restores a shrunk creature to normal size</span></li>
         <li>Blue-cap, white-dot mushrooms <span class="inv-note">S12; quantity unspecified; shrinks the eater</span></li>
+        <li>Crabs <span class="inv-note">unspecified quantity; new this session (S14); taken from the massive crab swarm in the cavern; purpose unrecorded</span></li>
         <li><em style="color:var(--text-muted);">Scale mail — given to Hadrin, S10 (confirmed as Mercy's prior unrecorded armor)</em></li>
       </ul>
     </div>
@@ -1868,8 +1953,8 @@
       <ul class="inv-list">
         <li>Zara: 20 gp</li>
         <li>Vespera: 1 cp</li>
-        <li>Party pool: 134 sp <span class="inv-note">119 sp from S11 + 15 sp looted S12</span></li>
-        <li>Party pool: 393 gp <span class="inv-note">392 gp from S12 + 1 gp looted from Derro Savant, S13</span></li>
+        <li>Party pool: 134 sp <span class="inv-note">unchanged from S13</span></li>
+        <li>Party pool: 383 gp <span class="inv-note">393 gp from S13 − 10 gp withdrawn, S14</span></li>
         <li>Party pool: 9 electrum <span class="inv-note">orog loot S10</span></li>
         <li>Party pool: 18 cp <span class="inv-note">orog loot S10</span></li>
       </ul>
@@ -1942,7 +2027,16 @@
       <span><span class="thread-key">Derro Savant's battered notebook</span> — looted from the luminous chamber combat (S13); party pool; written in an unknown, unidentified language; contents unknown.</span>
     </div>
     <div class="thread-item">
-      <span><span class="thread-key">Support points</span> — 10 available (9 active followers; Topsy &amp; Turvy count as 2); temporarily unavailable while all followers remain in Gracklstugh and not traveling with the party.</span>
+      <span><span class="thread-key">Support points</span> — 11 available (10 active followers; Topsy &amp; Turvy count as 2); available — all followers traveling with the party.</span>
+    </div>
+    <div class="thread-item urgent">
+      <span><span class="thread-key">Themberchaud's 48-hour deadline — LAPSED</span> — the party has spent 3+ days traveling away from Gracklstugh toward Neverlight Grove since receiving the assassination order. Whether Themberchaud has followed through on his threat to attack Gracklstugh is unknown.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Duergar support split</span> — per Graz'zt, support in Gracklstugh is currently divided between the Deep King and Themberchaud; implications unknown.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Vespera's known-spell count</span> — 6 known spells across 1st/2nd level (above the standard 4-known cap for a Level 5 Ranger); per the player, additional spells (e.g. Zone of Truth) are granted by feats, not the standard known-spells progression.</span>
     </div>
   </div>
 
@@ -1994,20 +2088,32 @@
     <div class="thread-item">
       <span><span class="thread-key">Droki's note</span> — a note from Droki was found; discovery circumstances unclear; contents unknown.</span>
     </div>
-    <div class="thread-item urgent">
-      <span><span class="thread-key">Themberchaud's 2-day deadline</span> — the party must assist the Deep King within two days; Themberchaud intends to attack after the deadline expires; attack target not specified.</span>
+    <div class="thread-item">
+      <span><span class="thread-key">Themberchaud's 2-day deadline</span> — superseded (S14): the true assignment was an assassination order against the Deep King, not "assist," per the Session 13 continuity correction. The 48-hour deadline has now lapsed — see Equipment/Mechanics.</span>
     </div>
     <div class="thread-item">
-      <span><span class="thread-key">Themberchaud's attack plan</span> — target of Themberchaud's planned attack after the 2-day deadline is not specified.</span>
+      <span><span class="thread-key">Themberchaud's attack plan</span> — target of Themberchaud's planned attack on Gracklstugh, now that the 48-hour deadline has lapsed, is not specified.</span>
     </div>
     <div class="thread-item">
-      <span><span class="thread-key">Themberchaud's mission vs. Errde Blackskull's mission</span> — Errde Blackskull tasked the party with finding Droki and the Gray Ghosts; unclear whether this mission now conflicts with Themberchaud's 2-day deadline.</span>
+      <span><span class="thread-key">Themberchaud's mission vs. Errde Blackskull's mission</span> — Errde Blackskull tasked the party with finding Droki and the Gray Ghosts; unclear whether this mission now conflicts with Themberchaud's assassination order.</span>
     </div>
     <div class="thread-item">
-      <span><span class="thread-key">David el Gnomo the Second</span> — in Gracklstugh this session, not with the party in the field; current activities unrecorded.</span>
+      <span><span class="thread-key">David el Gnomo the Second</span> — rejoined the party this session (S14).</span>
     </div>
     <div class="thread-item">
-      <span><span class="thread-key">Glabagoul</span> — travels with the party on foot; rode in David's bag of holding on two occasions only (corrected S13).</span>
+      <span><span class="thread-key">Glabagoul</span> — reunited with the party this session (S14) after departing Themberchaud's lair.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">The Deep King's fate</span> — status unknown after Graz'zt's appearance; whether he remains in power is unrecorded.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Graz'zt</span> — demon summoned by the consort/succubus; motives beyond enjoying the chaos unclear; said "see you soon," implying further involvement.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">The consort/succubus</span> — true identity, name, and agenda unknown.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">Rumpadump</span> — new myconid follower; abilities and role not yet detailed beyond wanting to return home to Neverlight Grove.</span>
     </div>
   </div>
 
@@ -2058,6 +2164,15 @@
     </div>
     <div class="thread-item">
       <span><span class="thread-key">Second land bridge moaning</span> — source unknown S8</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">The myconid mistress's wedding</span> — identity of the "mistress," location, and significance unknown; myconids encountered this session were celebrating it.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">The lipless dancers</span> — a dozen nude figures with permanent (lipless) smiles, dancing around a bonfire in a hut encampment; nature and significance unknown; party did not engage.</span>
+    </div>
+    <div class="thread-item">
+      <span><span class="thread-key">The crab swarm</span> — cause and significance of the massive crab swarm (hundreds of thousands of crabs) unknown.</span>
     </div>
     <div class="thread-item">
       <span><span class="thread-key">Lost Tomb of Karam</span> — Facrus's scroll map; Facrus dead; map in party pool; pursuit undecided</span>
@@ -2122,13 +2237,14 @@
 const DEFAULT_STATE = {
   bolts: 34,
   arrows: 36,
-  hp: 40,
+  hp: 49,
   tempHp: 0,
-  hitDice: [true, true, true, true],
-  spells: [true, true, true],
+  hitDice: [true, true, true, true, true],
+  spells: [true, true, true, true],
+  spells2: [true, true],
   hunterSense: [true, true, true],
-  favoredFoe: [true, true],
-  supportPoints: 10,
+  favoredFoe: [true, true, true],
+  supportPoints: 11,
 };
 
 function loadState() {
@@ -2171,6 +2287,11 @@ function renderAll() {
     pip.classList.toggle('filled', state.spells[i]);
   });
 
+  // Spell slots — 2nd level
+  document.querySelectorAll('#spell2-pips .pip').forEach((pip, i) => {
+    pip.classList.toggle('filled', state.spells2[i]);
+  });
+
   // Hunter's Sense
   document.querySelectorAll('#hs-pips .pip').forEach((pip, i) => {
     pip.classList.toggle('filled', state.hunterSense[i]);
@@ -2209,7 +2330,7 @@ document.getElementById('hp-dec').addEventListener('click', () => {
   if (state.hp > 0) { state.hp--; saveState(state); renderAll(); }
 });
 document.getElementById('hp-inc').addEventListener('click', () => {
-  if (state.hp < 40) { state.hp++; saveState(state); renderAll(); }
+  if (state.hp < 49) { state.hp++; saveState(state); renderAll(); }
 });
 
 // ─── TEMP HP ──────────────────────────────────────
@@ -2231,34 +2352,36 @@ function bindPips(containerId, stateKey, max) {
   });
 }
 
-bindPips('spell-pips', 'spells', 3);
+bindPips('spell-pips', 'spells', 4);
+bindPips('spell2-pips', 'spells2', 2);
 bindPips('hs-pips', 'hunterSense', 3);
-bindPips('ff-pips', 'favoredFoe', 2);
-bindPips('hd-pips', 'hitDice', 4);
+bindPips('ff-pips', 'favoredFoe', 3);
+bindPips('hd-pips', 'hitDice', 5);
 
 // ─── SUPPORT POINTS ──────────────────────────────
 document.getElementById('sp-dec').addEventListener('click', () => {
   if (state.supportPoints > 0) { state.supportPoints--; saveState(state); renderAll(); }
 });
 document.getElementById('sp-inc').addEventListener('click', () => {
-  if (state.supportPoints < 10) { state.supportPoints++; saveState(state); renderAll(); }
+  if (state.supportPoints < 11) { state.supportPoints++; saveState(state); renderAll(); }
 });
 
 // ─── LONG REST ────────────────────────────────────
 document.getElementById('long-rest-btn').addEventListener('click', () => {
   if (!confirm('Take a long rest? This will reset HP to max, clear temp HP, restore up to 2 hit dice, reset spell slots, Hunter\'s Sense, Favored Foe uses, and restore all support points.')) return;
-  state.hp = 40;
+  state.hp = 49;
   state.tempHp = 0;
-  // Restore half of max hit dice rounded down = 2 (half of 4)
-  const hdMax = 4;
+  // Restore half of max hit dice rounded down = 2 (half of 5)
+  const hdMax = 5;
   const restore = Math.floor(hdMax / 2);
   let restored = 0;
   for (let i = 0; i < state.hitDice.length && restored < restore; i++) {
     if (!state.hitDice[i]) { state.hitDice[i] = true; restored++; }
   }
-  state.spells = [true, true, true];
+  state.spells = [true, true, true, true];
+  state.spells2 = [true, true];
   state.hunterSense = [true, true, true];
-  state.favoredFoe = [true, true];
+  state.favoredFoe = [true, true, true];
   state.supportPoints = DEFAULT_STATE.supportPoints;
   saveState(state);
   renderAll();
@@ -2375,9 +2498,9 @@ function setupDirectEdit(displayId, stateKey, min, max) {
 
 setupDirectEdit('bolt-display', 'bolts', 0, null);
 setupDirectEdit('arrow-display', 'arrows', 0, null);
-setupRoll20Edit('hp-display', 'hp', 0, 40);
+setupRoll20Edit('hp-display', 'hp', 0, 49);
 setupRoll20Edit('thp-display', 'tempHp', 0, null);
-setupDirectEdit('sp-display', 'supportPoints', 0, 10);
+setupDirectEdit('sp-display', 'supportPoints', 0, 11);
 
 
 document.querySelectorAll('.tab-btn').forEach(btn => {
